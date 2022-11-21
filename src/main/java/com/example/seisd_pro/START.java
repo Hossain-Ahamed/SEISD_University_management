@@ -7,23 +7,28 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 
 public class START extends Application {
     Stage primaryStage;
 
     @Override
-    public void start(Stage window) throws IOException, ClassNotFoundException{
-        //jdbc driver path connect
-
+    public void start(Stage window) throws IOException, ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String url = "jdbc:mysql://localhost:3306/erp-management-system?severTimezone=UTC";
+        String user = "root";
+        String password = "";
         //connection with driver
+//        Connection c1 = DriverManager.getConnection(url, user, password);
+        //creaate a statement
+//        Statement s = c1.createStatement();
 
-
-
-
-
-
-        // use the jdbc like this
+        //thorugh the connection, so it can be used later
+//        new jdbc(c1,s);
 
         //pc information from pc_info
         String[] pc_infos = pc_info.getInforamtion();

@@ -45,21 +45,19 @@ ________________________________________________________________________________
      static  Connection c1;
      static Statement s;
 
-      public void connects(Connection c1, Statement s){
-           this.c1 = c1;
-           this.s=s;
+       @FXML
+       void initialize() {
+               this.c1 = jdbc.c1;
+               this.s= jdbc.s;
+
        }
 
   ------Example--------
        class login{
 
         static  Connection c1;
-            static Statement s;
+        static Statement s;
 
-             public void connects(Connection c1, Statement s){
-                  this.c1 = c1;
-                  this.s=s;
-              }
 
 
            @FXML
@@ -78,5 +76,15 @@ ________________________________________________________________________________
                                   ____________________________
                                   ____________________________
                }
+
+
+                  @FXML
+                   void initialize() {
+                        this.c1 = jdbc.c1;
+                        this.s= jdbc.s;
+
+                   }
        }
+
+       And we are done understanding
 

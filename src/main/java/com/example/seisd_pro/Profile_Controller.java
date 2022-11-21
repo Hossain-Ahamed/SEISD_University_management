@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -28,7 +30,11 @@ import javafx.scene.control.Label;
  *
  * @author Dark Wizard
  */
-public class Profile_Controller implements Initializable {
+public class Profile_Controller{
+    static Connection c1;
+    static Statement s;
+
+
 
     static String name1;
     @FXML
@@ -61,23 +67,10 @@ public class Profile_Controller implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-
-        }
-
-//        Connection conn = (Connection)
-//        DriverManager.getConnection("jdbc:mysql://localhost:3306/try?severTimezone=UTC","root","");
-        String url1 = "jdbc:mysql://bjn9yajxknszeuvhgczi-mysql.services.clever-cloud.com:3306/bjn9yajxknszeuvhgczi?severTimezone=UTC";
-        String user = "uve5k169sb891uxy";
-        String pass = "SzDHDl2UNNEWJwgOFQxe";
-
-
-
+    @FXML
+    void initialize() {
+        this.c1 = jdbc.c1;
+        this.s = jdbc.s;
 
     }
 
