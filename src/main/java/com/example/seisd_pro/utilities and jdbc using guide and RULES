@@ -1,0 +1,81 @@
+*****  RULES ********
+   **** Do not perform any change in
+        1. START.java
+        2. Main_Frame_Controller.java
+        3. jdbc.java
+        4. Login_controller.java
+        5. utilities.java
+        and their FXML file
+
+
+****** check twice before pull request
+      & provide full description about the change and addition
+
+_______________________________________________________________________________________
+utilities :
+  1. null input check
+      utilities.isNotNull(string_value)
+
+      it will return true if there is any text , and false if not
+
+  2. integer value check
+       utilities.isInteger(any_string_input)
+
+       it will return true if integer , and false if not
+
+  3. mail check
+       utilities.isEmail(string_of_the_email)
+
+       it will return true if valid , and false if not valid
+
+  4. password check
+       utilities.isValidPassword(password_string)
+
+       return true if contains both upper n lower case,special character & digit exist
+
+________________________________________________________________________________________________________
+  JDBC -- database using procedure
+
+    first declare this variable and
+    use like this in your controller class
+
+
+
+     static  Connection c1;
+     static Statement s;
+
+      public void connects(Connection c1, Statement s){
+           this.c1 = c1;
+           this.s=s;
+       }
+
+  ------Example--------
+       class login{
+
+        static  Connection c1;
+            static Statement s;
+
+             public void connects(Connection c1, Statement s){
+                  this.c1 = c1;
+                  this.s=s;
+              }
+
+
+           @FXML
+               void sign_in_button(ActionEvent event) throws SQLException, IOException {
+                   String order = "SELECT * FROM `"+login.type+"` WHERE userID="+userID_field.getText().trim();
+
+
+                                  ResultSet r = s.executeQuery(order);
+                                  while (r.next()) {
+                                      userIDFromServer = r.getString("userID");
+                                      passwordFromServer = r.getString("pass");
+                                  }
+
+
+                                  ____________________________
+                                  ____________________________
+                                  ____________________________
+               }
+       }
+

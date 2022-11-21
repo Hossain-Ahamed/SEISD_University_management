@@ -19,6 +19,12 @@ public class START extends Application {
         //connection with driver
 
 
+
+
+
+
+        // use the jdbc like this
+
         //pc information from pc_info
         String[] pc_infos = pc_info.getInforamtion();
 
