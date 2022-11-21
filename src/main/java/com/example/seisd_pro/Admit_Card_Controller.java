@@ -1,10 +1,11 @@
 package com.example.seisd_pro;
 
-import java.net.URL;
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.stage.Stage;
+
 import java.sql.Connection;
 import java.sql.Statement;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 
 public class Admit_Card_Controller {
     static Connection c1;
