@@ -18,16 +18,16 @@ public class START extends Application {
 
     @Override
     public void start(Stage window) throws IOException, ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/erp-management-system?severTimezone=UTC";
-        String user = "root";
-        String password = "";
-        //connection with driver
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//        String url = "jdbc:mysql://localhost:3306/erp-management?severTimezone=UTC";
+//        String user = "root";
+//        String password = "";
+//        //connection with driver
 //        Connection c1 = DriverManager.getConnection(url, user, password);
-        //creaate a statement
+//       // creaate a statement
 //        Statement s = c1.createStatement();
-
-        //thorugh the connection, so it can be used later
+//
+//        //thorugh the connection, so it can be used later
 //        new jdbc(c1,s);
 
         //pc information from pc_info
@@ -39,7 +39,7 @@ public class START extends Application {
         //  primaryStage.getIcons().add(new Image("/Image/iconshare.png"));
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(root, 800, 533);
+        Scene scene = new Scene(root, 836, 533);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

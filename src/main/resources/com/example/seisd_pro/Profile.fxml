@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Profile_Controller">
+<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Profile_Controller">
     <children>
         <Label layoutX="41.0" layoutY="96.0" text="Name :">
             <font>
@@ -68,9 +68,5 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <Button layoutX="511.0" layoutY="235.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="6.0" layoutY="225.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="361.0" layoutY="12.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="335.0" layoutY="494.0" mnemonicParsing="false" text="Button" />
     </children>
 </AnchorPane>
