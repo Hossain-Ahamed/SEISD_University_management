@@ -1,7 +1,6 @@
 package com.example.seisd_pro;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class jdbc {
