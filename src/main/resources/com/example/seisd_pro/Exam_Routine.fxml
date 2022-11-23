@@ -45,7 +45,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="update" layoutX="48.0" layoutY="267.0" mnemonicParsing="false" style="-fx-background-color: #606cbf;" styleClass="btn" stylesheets="@routine.css" text="Update" textFill="#fff5e4">
+      <Button fx:id="update" layoutX="48.0" layoutY="267.0" mnemonicParsing="false" styleClass="btn" stylesheets="@routine.css" text="Update" textFill="#fff5e4">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

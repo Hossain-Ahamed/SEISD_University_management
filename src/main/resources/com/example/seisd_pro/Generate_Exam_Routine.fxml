@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.GenerateExamRoutine">
+<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Generate_Exam_Routine">
     <children>
         <VBox alignment="CENTER" prefHeight="33.0" prefWidth="669.0" style="-fx-background-color: #f4f7ed;">
             <children>
