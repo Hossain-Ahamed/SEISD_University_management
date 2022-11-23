@@ -12,7 +12,7 @@
 }
 
 #add{
-    -fx-background-color:  #7ecbf2;
+    -fx-background-color: #7ecbf2;
 }
  #add:hover{
  -fx-background-color:  #4cb7ee;
@@ -23,18 +23,22 @@
 #update  {
     -fx-background-color:   #606cbf;
 }
-#update:hover{
-    -fx-background-color: #421a1f;
+#update:hover {
+    -fx-background-color: #1a1e42;
 }
 
 
-#Gupdate{
-  -fx-background-color:   #606cbf;
-}
- #Gupdate:hover{
-     -fx-background-color: #1a1e42;
- }
+/*#gupdate{*/
+/*  -fx-background-color:   #606cbf;*/
+/*}*/
+/* #gupdate:hover{*/
+/*     -fx-background-color: #1a1e42;*/
+/* }*/
 
 #view{
     -fx-background-color: #606cbf ;
+}
+
+#view:hover{
+    -fx-background-color: #1a1e42;
 }
