@@ -1,0 +1,40 @@
+
+.btn{
+    -fx-cursor: hand;
+}
+
+
+#create {
+    -fx-background-color:  #7ecbf2;
+}
+#create:hover {
+ -fx-background-color:  #4cb7ee;
+}
+
+#add{
+    -fx-background-color:  #7ecbf2;
+}
+ #add:hover{
+ -fx-background-color:  #4cb7ee;
+}
+
+
+
+#update  {
+    -fx-background-color:   #606cbf;
+}
+#update:hover{
+    -fx-background-color: #421a1f;
+}
+
+
+#Gupdate{
+  -fx-background-color:   #606cbf;
+}
+ #Gupdate:hover{
+     -fx-background-color: #1a1e42;
+ }
+
+#view{
+    -fx-background-color: #606cbf ;
+}
