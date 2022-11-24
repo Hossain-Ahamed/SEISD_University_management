@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.View_Exam_Routine_Controller">
+    <children>
+        <VBox alignment="CENTER" prefHeight="33.0" prefWidth="669.0" style="-fx-background-color: #f4f7ed;">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-alignment: center;" text="Exam Routine" textAlignment="RIGHT" textFill="#233242">
+                    <font>
+                        <Font name="System Bold" size="21.0" />
+                    </font>
+                </Label>
+            </children>
+            <effect>
+                <DropShadow height="41.04" radius="9.76" spread="0.16" width="0.0" />
+            </effect>
+        </VBox>
+    </children>
+</AnchorPane>
