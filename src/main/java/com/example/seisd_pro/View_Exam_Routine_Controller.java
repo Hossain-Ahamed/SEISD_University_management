@@ -21,7 +21,7 @@ public class View_Exam_Routine_Controller {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
 
-
+//
     }
 
 }
