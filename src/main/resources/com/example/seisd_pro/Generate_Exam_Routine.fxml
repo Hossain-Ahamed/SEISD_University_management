@@ -111,6 +111,11 @@
             </font>
         </Label>
         <TextField fx:id="RoomNo" layoutX="240.0" layoutY="142.0" prefHeight="25.0" prefWidth="278.0" promptText="111--112--113--114" />
+      <Button fx:id="create" contentDisplay="CENTER" layoutX="527.0" layoutY="113.0" mnemonicParsing="false" onAction="#RoutinePublishButton" prefHeight="39.0" prefWidth="131.0" styleClass="btn" text="Create" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
     </children>
 
 </AnchorPane>
