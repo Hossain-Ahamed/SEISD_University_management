@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Generate_Exam_Routine">
+<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Generate_Exam_Routine_Controller">
     <children>
         <VBox alignment="CENTER" prefHeight="33.0" prefWidth="669.0" style="-fx-background-color: #f4f7ed;">
             <children>
@@ -25,49 +25,49 @@
                 <DropShadow height="41.04" radius="9.76" spread="0.16" width="0.0" />
             </effect>
         </VBox>
-        <DatePicker id="Sdate" layoutX="15.0" layoutY="87.0" opacity="0.82" prefHeight="25.0" prefWidth="131.0" promptText="Exam Start Day" />
+        <DatePicker fx:id="Exam_Startdate" layoutX="15.0" layoutY="87.0" opacity="0.82" prefHeight="25.0" prefWidth="131.0" promptText="Exam Start Day" />
         <Label layoutX="15.0" layoutY="47.0" prefHeight="21.0" prefWidth="257.0" text="Insert Time Period Information : " textFill="#233242">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <DatePicker id="Offday" layoutX="15.0" layoutY="123.0" opacity="0.82" prefHeight="25.0" prefWidth="131.0" promptText="Exam Off Day" />
+        <DatePicker fx:id="Exam_Offdate" layoutX="15.0" layoutY="123.0" opacity="0.82" prefHeight="25.0" prefWidth="131.0" promptText="Exam Off Day" />
         <Label layoutX="374.0" layoutY="82.0" prefHeight="17.0" prefWidth="18.0" text="to" textFill="#233242" />
-        <TableView id="routineTable" layoutX="166.0" layoutY="201.0" prefHeight="172.0" prefWidth="487.0">
+        <TableView id="routineTable" fx:id="ESchedule_table" layoutX="166.0" layoutY="201.0" prefHeight="172.0" prefWidth="487.0">
             <columns>
-                <TableColumn id="col-date" prefWidth="105.0" text="Date" />
-                <TableColumn id="col-course" prefWidth="212.0" text=" Course Name" />
-                <TableColumn id="col-time" prefWidth="94.0" text="Times" />
-                <TableColumn id="col-time" prefWidth="77.0" text="Room" />
+                <TableColumn fx:id="Col_Exam_Date" prefWidth="105.0" text="Date" />
+                <TableColumn fx:id="Col_Course_Name" prefWidth="212.0" text=" Course Name" />
+                <TableColumn fx:id="Col_Time" prefWidth="94.0" text="Times" />
+                <TableColumn fx:id="Col_Room" prefWidth="77.0" text="Room" />
             </columns>
         </TableView>
-        <TableView id="offdaytable" layoutX="17.0" layoutY="201.0" prefHeight="172.0" prefWidth="131.0">
+        <TableView id="offdaytable" fx:id="off_table" layoutX="17.0" layoutY="201.0" prefHeight="172.0" prefWidth="131.0">
             <columns>
-                <TableColumn id="col-offday" prefWidth="129.0" text="Off Day List" />
+                <TableColumn fx:id="col_offday" prefWidth="129.0" text="Off Day List" />
             </columns>
         </TableView>
-        <Button contentDisplay="CENTER" layoutX="278.0" layoutY="480.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="131.0" style="-fx-background-color: #38E54D;" styleClass="btn" text="Publisih" textFill="#233242">
+        <Button fx:id="publish" contentDisplay="CENTER" layoutX="278.0" layoutY="480.0" mnemonicParsing="false" onAction="#RoutinePublishButton" prefHeight="39.0" prefWidth="131.0" styleClass="btn" text="Publish" textFill="#233242">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Button>
-        <Button id="TP-addButton" fx:id="add" layoutX="33.0" layoutY="157.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #7ecbf2;" styleClass="btn" text="Add" textFill="#233242">
+        <Button fx:id="gadd" layoutX="33.0" layoutY="157.0" mnemonicParsing="false" onAction="#OffDayAddButton" prefHeight="25.0" prefWidth="95.0" styleClass="btn" stylesheets="@routine.css" text="Add" textFill="#233242">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <Label id="error" layoutX="14.0" layoutY="367.0" prefHeight="45.0" prefWidth="641.0" text="ERROR" textFill="#ee0303">
+        <Label fx:id="error" layoutX="14.0" layoutY="367.0" prefHeight="45.0" prefWidth="641.0" style="-fx-alignment: CENTER;" text="ERROR" textFill="#ee0303">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <TextField id="Stime" layoutX="241.0" layoutY="77.0" prefHeight="25.0" prefWidth="120.0" promptText="HH:MM" />
-        <TextField id="Etime" layoutX="396.0" layoutY="77.0" prefHeight="25.0" prefWidth="120.0" promptText="HH:MM" />
-        <DatePicker id="Sdate" layoutX="15.0" layoutY="442.0" opacity="0.82" prefHeight="25.0" prefWidth="110.0" promptText="Date" />
-        <TextField layoutX="139.0" layoutY="442.0" prefHeight="25.0" prefWidth="228.0" promptText="Course Name" />
-        <TextField layoutX="380.0" layoutY="442.0" prefHeight="25.0" prefWidth="102.0" promptText="Time" />
-        <TextField layoutX="498.0" layoutY="442.0" prefHeight="25.0" prefWidth="80.0" promptText="Room No" />
-        <Button id="TP-addButton" fx:id="Gupdate" layoutX="592.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #606cbf;" styleClass="btn" text="Update" textFill="#fff5e4">
+        <TextField fx:id="Start_time1" layoutX="241.0" layoutY="77.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
+        <TextField fx:id="End_time1" layoutX="397.0" layoutY="79.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
+        <DatePicker fx:id="Udate" layoutX="15.0" layoutY="442.0" opacity="0.82" prefHeight="25.0" prefWidth="110.0" promptText="Date" />
+        <TextField fx:id="Ucourse" layoutX="139.0" layoutY="442.0" prefHeight="25.0" prefWidth="228.0" promptText="Course Name" />
+        <TextField fx:id="Utime" layoutX="380.0" layoutY="442.0" prefHeight="25.0" prefWidth="102.0" promptText="Time" />
+        <TextField fx:id="UroomNo" layoutX="498.0" layoutY="442.0" prefHeight="25.0" prefWidth="80.0" promptText="Room No" />
+        <Button fx:id="gupdate" layoutX="592.0" layoutY="442.0" mnemonicParsing="false" onAction="#IndividualUpdateRoutineButton" prefHeight="25.0" prefWidth="64.0" styleClass="btn" stylesheets="@routine.css" text="Update" textFill="#fff5e4">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
@@ -83,8 +83,8 @@
             </font>
         </Label>
         <Label layoutX="373.0" layoutY="112.0" prefHeight="17.0" prefWidth="18.0" text="to" textFill="#233242" />
-        <TextField id="Stime" layoutX="242.0" layoutY="108.0" prefHeight="25.0" prefWidth="120.0" promptText="HH:MM" />
-        <TextField id="Etime" layoutX="397.0" layoutY="107.0" prefHeight="25.0" prefWidth="120.0" promptText="HH:MM" />
+        <TextField fx:id="Strat_time2" layoutX="242.0" layoutY="108.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
+        <TextField fx:id="Start_time2" layoutX="397.0" layoutY="107.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
         <Label layoutX="170.0" layoutY="82.0" text="Shift -01 : " textFill="#233242">
             <font>
                 <Font name="System Bold" size="13.0" />
@@ -110,7 +110,7 @@
                 <Font name="System Bold" size="13.0" />
             </font>
         </Label>
-        <TextField id="Stime" layoutX="240.0" layoutY="142.0" prefHeight="25.0" prefWidth="278.0" promptText="111--112--113--114" />
+        <TextField fx:id="RoomNo" layoutX="240.0" layoutY="142.0" prefHeight="25.0" prefWidth="278.0" promptText="111--112--113--114" />
     </children>
 
 </AnchorPane>
