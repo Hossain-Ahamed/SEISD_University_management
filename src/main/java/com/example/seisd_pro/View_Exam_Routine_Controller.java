@@ -1,15 +1,20 @@
 package com.example.seisd_pro;
 
-
-import javafx.fxml.FXML;
-
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 
-public class Generate_Exam_Routine {
+public class View_Exam_Routine_Controller {
+
     static Connection c1;
     static Statement s;
+    @FXML
+    private ResourceBundle resources;
 
+    @FXML
+    private URL location;
 
     @FXML
     void initialize() {
@@ -18,4 +23,5 @@ public class Generate_Exam_Routine {
 
 
     }
+
 }
