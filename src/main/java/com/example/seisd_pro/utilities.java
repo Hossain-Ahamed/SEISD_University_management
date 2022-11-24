@@ -1,8 +1,6 @@
 package com.example.seisd_pro;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 public class utilities {
     //return false if null
     public static boolean isNotNull(String string) {
