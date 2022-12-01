@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Generate_Exam_Routine_Controller {
 
@@ -126,6 +127,11 @@ public class Generate_Exam_Routine_Controller {
     void initialize() {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
+
+        Col_Exam_Date.setCellValueFactory(new PropertyValueFactory<>("eDate"));
+        Col_Course_Name.setCellValueFactory(new PropertyValueFactory<>("eCourseCode"));
+        Col_Time.setCellValueFactory(new PropertyValueFactory<>("eTime"));
+        Col_Room.setCellValueFactory(new PropertyValueFactory<>("eRoomNo"));
 
 
     }
