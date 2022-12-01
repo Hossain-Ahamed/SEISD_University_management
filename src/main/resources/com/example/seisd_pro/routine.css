@@ -1,5 +1,7 @@
 .btn{
     -fx-cursor: hand;
+    -fx-background-radius: 7px;
+    -fx-border-radius: 7px;
 }
 
 #create {
@@ -8,6 +10,7 @@
 #create:hover {
  -fx-background-color:  #4cb7ee;
 }
+<<<<<<< HEAD
 
 #add{
     -fx-background-color: #7ecbf2;
@@ -31,10 +34,40 @@
 /*     -fx-background-color: #1a1e42;*/
 /* }*/
 
+=======
+>>>>>>> 0e113f569dc13c43d79a129fb0ac032c92ff1a79
 #view{
     -fx-background-color: #606cbf ;
 }
 
 #view:hover{
     -fx-background-color: #1a1e42;
+}
+
+#gadd{
+    -fx-background-color: #7ecbf2;
+}
+#gadd:hover{
+    -fx-background-color:  #4cb7ee;
+}
+
+#gupdate{
+  -fx-background-color:   #606cbf;
+}
+ #gupdate:hover{
+     -fx-background-color: #1a1e42;
+ }
+#publish{
+  -fx-background-color: #21af33;
+}
+ #publish:hover{
+     -fx-background-color: #239431;
+ }
+
+#Delete {
+    -fx-background-color: #e13c3c;
+}
+#Delete:hover {
+    -fx-background-color: #c90404;
+    -fx-text-fill: #e7d5b7 ;
 }

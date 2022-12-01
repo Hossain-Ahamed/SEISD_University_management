@@ -55,7 +55,11 @@ public class Exam_Routine_Controller{
     public void update(ActionEvent actionEvent) {
     }
 
-    public void view(ActionEvent actionEvent) {
+    public void view(ActionEvent actionEvent) throws IOException {
+        Parent fxml2 = FXMLLoader.load(getClass().getResource("View_Exam_Routine.fxml"));
+        Pane fxml2scene = new Pane(fxml2);
+
+        borderPane.setCenter(fxml2);
     }
     @FXML
     void initialize() {
