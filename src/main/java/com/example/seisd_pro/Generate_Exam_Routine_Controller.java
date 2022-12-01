@@ -3,6 +3,7 @@ package com.example.seisd_pro;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,7 +37,7 @@ public class Generate_Exam_Routine_Controller {
     private TableColumn<?, ?> Col_Time;
 
     @FXML
-    private TableView<?> ESchedule_table;
+    private TableView<ExamScheduleTableClass> ESchedule_table;
 
     @FXML
     private TextField End_time1;
@@ -87,7 +88,7 @@ public class Generate_Exam_Routine_Controller {
     private Button gupdate;
 
     @FXML
-    private TableView<?> off_table;
+    private TableView<offDayListTableClass> off_table;
 
     @FXML
     private Button publish;
@@ -100,6 +101,13 @@ public class Generate_Exam_Routine_Controller {
 
     @FXML
     void CreateRoutineButton(ActionEvent event) {
+        LocalDate examStartDay = Exam_Startdate.getValue();
+        System.out.println(examStartDay.getDayOfMonth());
+        System.out.println(examStartDay.getDayOfWeek());
+        System.out.println(examStartDay.getDayOfYear());
+        System.out.println(examStartDay.getMonth());
+        System.out.println(examStartDay.getYear());
+        System.out.println(examStartDay.getMonth());
 
     }
 
