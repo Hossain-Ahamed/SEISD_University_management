@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Generate_Exam_Routine_Controller">
+<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Generate_Exam_Routine_Controller">
     <children>
         <VBox alignment="CENTER" prefHeight="33.0" prefWidth="669.0" style="-fx-background-color: #f4f7ed;">
             <children>
@@ -111,7 +111,7 @@
             </font>
         </Label>
         <TextField fx:id="RoomNo" layoutX="240.0" layoutY="142.0" prefHeight="25.0" prefWidth="278.0" promptText="111--112--113--114" />
-      <Button fx:id="create" contentDisplay="CENTER" layoutX="527.0" layoutY="113.0" mnemonicParsing="false" onAction="#RoutinePublishButton" prefHeight="39.0" prefWidth="131.0" styleClass="btn" text="Create" textFill="#233242">
+      <Button fx:id="create" contentDisplay="CENTER" layoutX="527.0" layoutY="113.0" mnemonicParsing="false" onAction="#CreateRoutineButton" prefHeight="39.0" prefWidth="131.0" styleClass="btn" text="Create" textFill="#233242">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
