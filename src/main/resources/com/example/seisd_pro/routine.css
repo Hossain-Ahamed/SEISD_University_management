@@ -5,7 +5,10 @@
     -fx-border-radius: 7px;
 }
 
-
+.thebutton{
+    -fx-cursor: hand;
+    /*-fx-background-image: url('logo.png');*/
+}
 #create {
     -fx-background-color:  #7ecbf2;
 }
