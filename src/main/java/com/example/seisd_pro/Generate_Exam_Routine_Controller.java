@@ -3,6 +3,7 @@ package com.example.seisd_pro;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Generate_Exam_Routine_Controller {
 
@@ -36,7 +38,7 @@ public class Generate_Exam_Routine_Controller {
     private TableColumn<?, ?> Col_Time;
 
     @FXML
-    private TableView<?> ESchedule_table;
+    private TableView<ExamScheduleTableClass> ESchedule_table;
 
     @FXML
     private TextField End_time1;
@@ -87,7 +89,7 @@ public class Generate_Exam_Routine_Controller {
     private Button gupdate;
 
     @FXML
-    private TableView<?> off_table;
+    private TableView<offDayListTableClass> off_table;
 
     @FXML
     private Button publish;
@@ -100,6 +102,13 @@ public class Generate_Exam_Routine_Controller {
 
     @FXML
     void CreateRoutineButton(ActionEvent event) {
+        LocalDate examStartDay = Exam_Startdate.getValue();
+        System.out.println(examStartDay.getDayOfMonth());
+        System.out.println(examStartDay.getDayOfWeek());
+        System.out.println(examStartDay.getDayOfYear());
+        System.out.println(examStartDay.getMonth());
+        System.out.println(examStartDay.getYear());
+        System.out.println(examStartDay.getMonth());
 
     }
 
@@ -118,6 +127,11 @@ public class Generate_Exam_Routine_Controller {
     void initialize() {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
+
+        Col_Exam_Date.setCellValueFactory(new PropertyValueFactory<>("eDate"));
+        Col_Course_Name.setCellValueFactory(new PropertyValueFactory<>("eCourseCode"));
+        Col_Time.setCellValueFactory(new PropertyValueFactory<>("eTime"));
+        Col_Room.setCellValueFactory(new PropertyValueFactory<>("eRoomNo"));
 
 
     }
