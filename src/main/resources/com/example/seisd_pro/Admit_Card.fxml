@@ -11,4 +11,6 @@
             fx:controller="com.example.seisd_pro.Admit_Card_Controller"
             prefHeight="533.0" prefWidth="669.0">
 
+
+
 </AnchorPane>

@@ -4,6 +4,13 @@
     -fx-border-radius: 7px;
 }
 
+<<<<<<< HEAD
+=======
+.thebutton{
+    -fx-cursor: hand;
+    /*-fx-background-image: url('logo.png');*/
+}
+>>>>>>> a0c983f5bcc37c90b7ae045db7926b74b3a20b92
 #create {
     -fx-background-color:  #7ecbf2;
 }
