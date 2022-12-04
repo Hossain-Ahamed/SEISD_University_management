@@ -7,10 +7,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 
 public class START extends Application {
@@ -19,16 +16,29 @@ public class START extends Application {
     @Override
     public void start(Stage window) throws IOException, ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/test12?severTimezone=UTC";
-        String user = "root";
+
+        String url = "jdbc:mysql://";
+        String user = "";
+
         String password = "";
         //connection with driver
         Connection c1 = DriverManager.getConnection(url, user, password);
        // creaate a statement
         Statement s = c1.createStatement();
 
+
         //thorugh the connection, so it can be used later
         new jdbc(c1,s);
+
+
+
+        // Get info about the semester
+        String semOrder = "SELECT sem FROM `information`";
+        String sem ="";
+        ResultSet r = s.executeQuery(semOrder);
+        while (r.next()) {sem=r.getString("sem");}
+        utilities.setSemester(sem);
+
 
         //pc information from pc_info
         String[] pc_infos = pc_info.getInforamtion();

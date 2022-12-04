@@ -1,7 +1,18 @@
 package com.example.seisd_pro;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class utilities {
+    public static String semsterName;
+    public  static  void setSemester(String semsterName){
+        utilities.semsterName = semsterName;
+    }
+
+
+    public  static  String thisSemester(){
+       return utilities.semsterName;
+    }
     //return false if null
     public static boolean isNotNull(String string) {
         return !"".equals(string.trim());
