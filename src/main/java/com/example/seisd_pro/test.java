@@ -1,9 +1,59 @@
 package com.example.seisd_pro;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class test {
     public static void main(String[] args) {
+
+        JSONObject obj=new JSONObject();
+        obj.put("name","sonoo");
+        obj.put("age",27);
+        obj.put("salary",600000);
+        System.out.print(obj);
+
+
+        ///convert to string to push
+        String jsonText = JSONValue.toJSONString(obj);
+        System.out.print(jsonText);
+
+
+        //get dataa from string ----- convert string to json
+        Object obj1 =JSONValue.parse(jsonText);
+        JSONObject jsonObject = (JSONObject) obj1;
+        String name = (String) jsonObject.get("name");
+        double salary = (Double) jsonObject.get("salary");
+        long age = (Long) jsonObject.get("age");
+
+
+        //new input & change previous value
+        jsonObject.put("bage",754743);
+        jsonObject.put("age",000);
+
+        //array add in obj
+        JSONArray arr = new JSONArray();
+        arr.add("sonoo");
+        arr.add(27);
+        arr.add(600000);
+        jsonObject.put("arr",arr);
+
+
+        System.out.println(jsonObject);
+        jsonObject.remove("bage");
+        System.out.println(jsonObject);
+
+
+        //array data fetch
+        JSONArray jararray = (JSONArray) jsonObject.get("arr");
+
+        System.out.println(jararray.get(0));
+        System.out.println(jararray.remove(0));
+        System.out.println(jsonObject);
+
+/*
         String a = "A,B,C,D";
         String b = "a,b,c,d";
         String[] s = a.split(",");
@@ -54,7 +104,7 @@ public class test {
         }
 
         System.out.println(s1);
-     /*   ArrayList<String[]> outerArr = new ArrayList<String[]>();
+   ArrayList<String[]> outerArr = new ArrayList<String[]>();
 
         String[] myString1= {"hey","hey","hey","hey"};
         outerArr .add(myString1);
