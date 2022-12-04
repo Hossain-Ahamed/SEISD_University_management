@@ -18,17 +18,17 @@ public class START extends Application {
 
     @Override
     public void start(Stage window) throws IOException, ClassNotFoundException, SQLException {
-//        Class.forName("com.mysql.cj.jdbc.Driver");
-//        String url = "jdbc:mysql://localhost:3306/erp-management?severTimezone=UTC";
-//        String user = "root";
-//        String password = "";
-//        //connection with driver
-//        Connection c1 = DriverManager.getConnection(url, user, password);
-//       // creaate a statement
-//        Statement s = c1.createStatement();
-//
-//        //thorugh the connection, so it can be used later
-//        new jdbc(c1,s);
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String url = "jdbc:mysql://localhost:3306/test12?severTimezone=UTC";
+        String user = "root";
+        String password = "";
+        //connection with driver
+        Connection c1 = DriverManager.getConnection(url, user, password);
+       // creaate a statement
+        Statement s = c1.createStatement();
+
+        //thorugh the connection, so it can be used later
+        new jdbc(c1,s);
 
         //pc information from pc_info
         String[] pc_infos = pc_info.getInforamtion();

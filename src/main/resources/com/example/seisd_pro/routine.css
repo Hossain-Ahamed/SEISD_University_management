@@ -4,20 +4,19 @@
     -fx-border-radius: 7px;
 }
 
-<<<<<<< HEAD
-=======
+
 .thebutton{
     -fx-cursor: hand;
     /*-fx-background-image: url('logo.png');*/
 }
->>>>>>> a0c983f5bcc37c90b7ae045db7926b74b3a20b92
+
 #create {
     -fx-background-color:  #7ecbf2;
 }
 #create:hover {
  -fx-background-color:  #4cb7ee;
 }
-<<<<<<< HEAD
+
 
 #add{
     -fx-background-color: #7ecbf2;
@@ -41,8 +40,7 @@
 /*     -fx-background-color: #1a1e42;*/
 /* }*/
 
-=======
->>>>>>> 0e113f569dc13c43d79a129fb0ac032c92ff1a79
+
 #view{
     -fx-background-color: #606cbf ;
 }
