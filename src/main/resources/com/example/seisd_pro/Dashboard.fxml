@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -23,7 +23,11 @@
                         <Font size="16.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="#f2f2f2" glyphName="USERS" />
+                        <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Dashboard_Image/user2.png" />
+                           </image>
+                        </ImageView>
                      </graphic>
                   </Label>
                   <Label fx:id="TotalStudent" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="123.0" style="-fx-alignment: CENTER;" text="3.7k" textAlignment="CENTER" textFill="#f2f2f2">
@@ -43,7 +47,11 @@
                         <Font size="16.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="#f2f2f2" glyphName="USERS" />
+                        <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Dashboard_Image/user2.png" />
+                           </image>
+                        </ImageView>
                      </graphic>
                   </Label>
                   <Label fx:id="RunningStudent" layoutX="10.0" layoutY="10.0" prefHeight="48.0" prefWidth="122.0" style="-fx-alignment: CENTER;" text="2.3K" textAlignment="CENTER" textFill="#f2f2f2">
@@ -63,7 +71,11 @@
                         <Font size="16.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="#f2f2f2" glyphName="USERS" />
+                        <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Dashboard_Image/users.png" />
+                           </image>
+                        </ImageView>
                      </graphic>
                   </Label>
                   <Label fx:id="Faculty" layoutX="10.0" layoutY="10.0" prefHeight="48.0" prefWidth="118.0" style="-fx-alignment: CENTER;" text="12" textAlignment="CENTER" textFill="#f2f2f2">
@@ -83,7 +95,11 @@
                         <Font size="16.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="#f2f2f2" glyphName="BOOK" />
+                        <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Dashboard_Image/doc.png" />
+                           </image>
+                        </ImageView>
                      </graphic>
                   </Label>
                   <Label fx:id="TotalCourse" layoutX="10.0" layoutY="10.0" prefHeight="48.0" prefWidth="121.0" style="-fx-alignment: CENTER;" text="80" textAlignment="CENTER" textFill="#f2f2f2">
@@ -103,7 +119,11 @@
                         <Font size="16.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="#f2f2f2" glyphName="BOOK" />
+                        <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Dashboard_Image/doc.png" />
+                           </image>
+                        </ImageView>
                      </graphic>
                   </Label>
                   <Label fx:id="RunningCourse" layoutX="10.0" layoutY="10.0" prefHeight="48.0" prefWidth="121.0" style="-fx-alignment: CENTER;" text="30" textAlignment="CENTER" textFill="#f2f2f2">
@@ -123,21 +143,53 @@
       </HBox>
       <Separator layoutY="185.0" prefHeight="10.0" prefWidth="669.0" />
       <Circle fill="#fff5e4" layoutX="68.0" layoutY="190.0" radius="20.0" stroke="#b5a7a7" strokeType="INSIDE" />
+      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="53.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dashboard_Image/cap.png" />
+         </image>
+      </ImageView>
       <Circle fill="#fff5e4" layoutX="137.0" layoutY="190.0" radius="20.0" stroke="#b5a7a7" strokeType="INSIDE" />
+      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="122.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dashboard_Image/computer.png" />
+         </image>
+      </ImageView>
       <Circle fill="#fff5e4" layoutX="216.0" layoutY="190.0" radius="20.0" stroke="#b5a7a7" strokeType="INSIDE" />
+      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="201.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dashboard_Image/pen.png" />
+         </image>
+      </ImageView>
       <Circle fill="#fff5e4" layoutX="296.0" layoutY="190.0" radius="20.0" stroke="#b5a7a7" strokeType="INSIDE" />
+      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="281.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dashboard_Image/teacher.png" />
+         </image>
+      </ImageView>
       <Circle fill="#fff5e4" layoutX="378.0" layoutY="190.0" radius="20.0" stroke="#b5a7a7" strokeType="INSIDE" />
+      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="363.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dashboard_Image/User.png" />
+         </image>
+      </ImageView>
       <Circle fill="#fff5e4" layoutX="458.0" layoutY="190.0" radius="20.0" stroke="#b5a7a7" strokeType="INSIDE" />
+      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="443.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dashboard_Image/idea.png" />
+         </image>
+      </ImageView>
       <Circle fill="#fff5e4" layoutX="534.0" layoutY="190.0" radius="20.0" stroke="#b5a7a7" strokeType="INSIDE" />
+      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="519.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dashboard_Image/calender.png" />
+         </image>
+      </ImageView>
       <Circle fill="#fff5e4" layoutX="600.0" layoutY="190.0" radius="20.0" stroke="#b5a7a7" strokeType="INSIDE" />
-      <FontAwesomeIconView fill="#b5a7a7" glyphName="BOOK" layoutX="57.0" layoutY="198.0" size="23" />
-      <FontAwesomeIconView fill="#b5a7a7" glyphName="PENCIL" layoutX="127.0" layoutY="198.0" size="23" />
-      <FontAwesomeIconView fill="#b5a7a7" glyphName="FILE" layoutX="205.0" layoutY="198.0" size="23" />
-      <FontAwesomeIconView fill="#b5a7a7" glyphName="CALCULATOR" layoutX="285.0" layoutY="198.0" size="23" />
-      <FontAwesomeIconView fill="#b5a7a7" glyphName="USERS" layoutX="367.0" layoutY="198.0" size="23" />
-      <FontAwesomeIconView fill="#b5a7a7" glyphName="CERTIFICATE" layoutX="448.0" layoutY="199.0" size="23" text="" />
-      <Icon content="COMPUTER" disable="true" layoutX="523.0" layoutY="177.0" />
-      <FontAwesomeIconView fill="#b5a7a7" glyphName="BUS" layoutX="590.0" layoutY="198.0" size="23" />
+      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="585.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dashboard_Image/folder.png" />
+         </image>
+      </ImageView>
       <HBox layoutX="18.0" layoutY="220.0" prefHeight="99.0" prefWidth="634.0" spacing="10.0">
          <children>
             <Button fx:id="StudentPassed" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#StudentPassed" prefHeight="121.0" prefWidth="205.0" style="-fx-background-color: #00838f; -fx-cursor: HAND;" textAlignment="CENTER" textFill="#f2f2f2">
@@ -154,7 +206,11 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                            <graphic>
-                              <FontAwesomeIconView fill="WHITE" glyphName="USERS" text="" />
+                              <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Dashboard_Image/graduated.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Label>
                      </children>
@@ -175,7 +231,11 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                            <graphic>
-                              <FontAwesomeIconView fill="WHITE" glyphName="USER" text="" />
+                              <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Dashboard_Image/user2.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Label>
                      </children>
@@ -196,7 +256,11 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                            <graphic>
-                              <FontAwesomeIconView fill="WHITE" glyphName="LIST" />
+                              <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Dashboard_Image/attendace.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Label>
                      </children>
@@ -221,7 +285,11 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                            <graphic>
-                              <FontAwesomeIconView fill="WHITE" glyphName="BOOK" />
+                              <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Dashboard_Image/class.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Label>
                      </children>
@@ -242,7 +310,11 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                            <graphic>
-                              <FontAwesomeIconView fill="WHITE" glyphName="PENCIL" />
+                              <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Dashboard_Image/exam.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Label>
                      </children>
@@ -263,7 +335,11 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                            <graphic>
-                              <FontAwesomeIconView fill="WHITE" glyphName="CALCULATOR" />
+                              <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Dashboard_Image/paument.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Label>
                      </children>
