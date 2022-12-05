@@ -15,24 +15,24 @@ public class START extends Application {
 
     @Override
     public void start(Stage window) throws IOException, ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://";
-        String user = "";
-        String password = "";
-        //connection with driver
-        Connection c1 = DriverManager.getConnection(url, user, password);
-       // creaate a statement
-        Statement s = c1.createStatement();
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//        String url = "jdbc:mysql://";
+//        String user = "";
+//        String password = "";
+//        //connection with driver
+//        Connection c1 = DriverManager.getConnection(url, user, password);
+//       // creaate a statement
+//        Statement s = c1.createStatement();
         //thorugh the connection, so it can be used later
-        new jdbc(c1,s);
+//        new jdbc(c1,s);
 
 
         // Get info about the semester
-        String semOrder = "SELECT sem FROM `information`";
-        String sem ="";
-        ResultSet r = s.executeQuery(semOrder);
-        while (r.next()) {sem=r.getString("sem");}
-        utilities.setSemester(sem);
+//        String semOrder = "SELECT sem FROM `information`";
+//        String sem ="";
+//        ResultSet r = s.executeQuery(semOrder);
+//        while (r.next()) {sem=r.getString("sem");}
+//        utilities.setSemester(sem);
 
 
         //pc information from pc_info

@@ -47,6 +47,7 @@ public class Main_Frame_Controller  implements Initializable {
         borderpane.setCenter(fxml2);
     }
     public void Admit_Card(ActionEvent event) throws IOException{
+        Admit_Card_Controller.getBorderPane(borderpane);
         Parent fxml2 = FXMLLoader.load(getClass().getResource("Admit_Card.fxml"));
         Pane fxml2scene = new Pane(fxml2);
 

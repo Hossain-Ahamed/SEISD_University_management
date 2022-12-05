@@ -38,29 +38,29 @@ public class Login_Controller{
 
     public void login(ActionEvent event) throws IOException, SQLException {
 
-        if(text1.getText().trim() != ""){
-            String order = "SELECT * FROM `admin_pass` WHERE userID=" + text1.getText().trim();
-            //  to show data from databaase
-            System.out.println(order);
-            ResultSet r = s.executeQuery(order);
-            while (r.next()) {
-                String  y = r.getString("userID");
-                String t = r.getString("pass");
-
-                System.out.println(y);
-                System.out.println(t);
-
-
-
-            }
-        }else{
+//        if(text1.getText().trim() != ""){
+//            String order = "SELECT * FROM `admin_pass` WHERE userID=" + text1.getText().trim();
+//            //  to show data from databaase
+//            System.out.println(order);
+//            ResultSet r = s.executeQuery(order);
+//            while (r.next()) {
+//                String  y = r.getString("userID");
+//                String t = r.getString("pass");
+//
+//                System.out.println(y);
+//                System.out.println(t);
+//
+//
+//
+//            }
+//        }else{
 
         Parent fxml2 = FXMLLoader.load(getClass().getResource("Main_Frame.fxml"));
         Scene fxml2scene = new Scene(fxml2);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(fxml2scene);
         window.show();}
-    }
+//    }
 
 
     @FXML
