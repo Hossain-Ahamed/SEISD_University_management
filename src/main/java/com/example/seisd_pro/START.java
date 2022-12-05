@@ -15,6 +15,7 @@ public class START extends Application {
 
     @Override
     public void start(Stage window) throws IOException, ClassNotFoundException, SQLException {
+
         Class.forName("com.mysql.cj.jdbc.Driver");
         String url = "jdbc:mysql://uffttslvl1ffduya:bfDXWVyitdqs8PGBp4f4@bgs7tzjpys5zfnmraodc-mysql.services.clever-cloud.com:3306/bgs7tzjpys5zfnmraodc";
         String user = "uffttslvl1ffduya";
@@ -23,16 +24,19 @@ public class START extends Application {
         Connection c1 = DriverManager.getConnection(url, user, password);
        // creaate a statement
         Statement s = c1.createStatement();
+
         //thorugh the connection, so it can be used later
         new jdbc(c1,s);
 
 
         // Get info about the semester
+
         String semOrder = "SELECT value FROM `information` WHERE attribute = 'thisSem'";
         String sem ="";
         ResultSet r = s.executeQuery(semOrder);
         while (r.next()) {sem=r.getString("value");}
         utilities.setSemester(sem);
+
 
 
         //pc information from pc_info
