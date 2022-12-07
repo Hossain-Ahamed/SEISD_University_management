@@ -66,7 +66,7 @@ public class Exam_Routine_Controller{
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
 
-        session.getItems().add("Fall 2022");
+        session.getItems().add(utilities.thisSemester());
         dept.getItems().add("CSE");
         ECategory.getItems().add("Final");
 

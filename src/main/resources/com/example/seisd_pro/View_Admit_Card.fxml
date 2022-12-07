@@ -6,15 +6,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.seisd_pro.Admit_Card_Controller"
+            fx:controller="com.example.seisd_pro.View_Admit_CArd_Controller"
             prefHeight="533.0" prefWidth="669.0">
     <children>
         <Label layoutX="47.0" layoutY="121.0" prefHeight="25.0" prefWidth="59.0" text="Session" />
-        <Button layoutX="42.0" layoutY="228.0" mnemonicParsing="false" onAction="#wee" style="-fx-background-color: GRAY;" text="Show" textFill="#212122">
+        <Button layoutX="42.0" layoutY="228.0" mnemonicParsing="false" style="-fx-background-color: GRAY;" text="Show" textFill="#212122">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font></Button>
@@ -28,11 +28,19 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Text>
-        <TextField layoutX="132.0" layoutY="175.0" prefHeight="25.0" prefWidth="392.0" promptText="------Enter your ID------" />
         <Label layoutX="47.0" layoutY="179.0" prefHeight="25.0" prefWidth="59.0" text="ID" />
-        <ComboBox fx:id="session" layoutX="132.0" layoutY="121.0" prefHeight="25.0" prefWidth="392.0" promptText="------Select Session------" />
+        <TableView layoutX="47.0" layoutY="272.0" prefHeight="200.0" prefWidth="507.0">
+            <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+            </columns>
+        </TableView>
+        <Button layoutX="42.0" layoutY="505.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" style="-fx-background-color: #0b068c99;" text="Print" textFill="#ffffffec">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font></Button>
+        <ComboBox fx:id="session" layoutX="142.0" layoutY="131.0" prefHeight="25.0" prefWidth="392.0" promptText="------Select Session------" />
+        <TextField layoutX="142.0" layoutY="185.0" prefHeight="25.0" prefWidth="392.0" promptText="------Enter your ID------" />
     </children>
-
-
 
 </AnchorPane>
