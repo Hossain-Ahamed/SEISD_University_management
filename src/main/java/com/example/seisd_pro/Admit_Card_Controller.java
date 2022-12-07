@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class Admit_Card_Controller {
     static Connection c1;
+
     static Statement s;
     static BorderPane borderPane;
     static  void getBorderPane(BorderPane borderPane){
@@ -51,10 +52,9 @@ public class Admit_Card_Controller {
             this.c1 = jdbc.c1;
             this.s = jdbc.s;
         assert session != null : "fx:id=\"session\" was not injected: check your FXML file 'hello-view.fxml'.";
-        session.getItems().add("Aga");
-        // session.getItems().add("Matha");
+        session.getItems().add("Spring");
+        session.getItems().add("Fall");
 
     }
 
 }
-//my name is ddsd
