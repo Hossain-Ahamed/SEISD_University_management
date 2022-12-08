@@ -20,7 +20,7 @@ public class View_Admit_CArd_Controller {
     private ComboBox<?> session;
 
     @FXML
-    void initialize() {
+     void initialize() {
         assert session != null : "fx:id=\"session\" was not injected: check your FXML file '2.fxml'.";
 
     }
