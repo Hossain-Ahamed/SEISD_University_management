@@ -1,17 +1,19 @@
 package com.example.seisd_pro;
 
-public class offDayListTableClass {
-    private  String OffDay;
+import java.time.LocalDate;
 
-    public offDayListTableClass(String offDay) {
+public class offDayListTableClass {
+    private LocalDate OffDay;
+
+    public offDayListTableClass(LocalDate offDay) {
         OffDay = offDay;
     }
 
-    public String getOffDay() {
+    public LocalDate getOffDay() {
         return OffDay;
     }
 
-    public void setOffDay(String offDay) {
+    public void setOffDay(LocalDate offDay) {
         OffDay = offDay;
     }
 }
