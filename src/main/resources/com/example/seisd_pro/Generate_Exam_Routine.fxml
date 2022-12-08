@@ -25,97 +25,99 @@
                 <DropShadow height="41.04" radius="9.76" spread="0.16" width="0.0" />
             </effect>
         </VBox>
-        <DatePicker fx:id="Exam_Startdate" layoutX="15.0" layoutY="87.0" opacity="0.82" prefHeight="25.0" prefWidth="131.0" promptText="Exam Start Day" />
-        <Label layoutX="15.0" layoutY="47.0" prefHeight="21.0" prefWidth="257.0" text="Insert Time Period Information : " textFill="#233242">
+        <DatePicker fx:id="Exam_Startdate" layoutX="27.0" layoutY="92.0" opacity="0.82" prefHeight="26.0" prefWidth="178.0" promptText="Exam Start Day" />
+        <Label layoutX="8.0" layoutY="48.0" prefHeight="21.0" prefWidth="257.0" text="Insert Time Period Information : " textFill="#3a90e7">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <DatePicker fx:id="Exam_Offdate" layoutX="15.0" layoutY="123.0" opacity="0.82" prefHeight="25.0" prefWidth="131.0" promptText="Exam Off Day" />
-        <Label layoutX="374.0" layoutY="82.0" prefHeight="17.0" prefWidth="18.0" text="to" textFill="#233242" />
-        <TableView id="routineTable" fx:id="ESchedule_table" layoutX="166.0" layoutY="201.0" prefHeight="172.0" prefWidth="487.0">
+        <DatePicker fx:id="Exam_Offdate" layoutX="25.0" layoutY="138.0" opacity="0.82" prefHeight="26.0" prefWidth="178.0" promptText="Exam Off Day" />
+        <Label layoutX="450.0" layoutY="61.0" prefHeight="17.0" prefWidth="18.0" text="to" textFill="#233242" />
+        <TableView id="routineTable" fx:id="ESchedule_table" layoutX="146.0" layoutY="245.0" onMouseClicked="#mouseEvent" prefHeight="172.0" prefWidth="518.0">
             <columns>
-                <TableColumn fx:id="Col_Exam_Date" prefWidth="105.0" text="Date" />
-                <TableColumn fx:id="Col_Course_Name" prefWidth="212.0" text=" Course Name" />
-                <TableColumn fx:id="Col_Time" prefWidth="94.0" text="Times" />
-                <TableColumn fx:id="Col_Room" prefWidth="77.0" text="Room" />
+            <TableColumn fx:id="Col_Exam_No" prefWidth="33.5999755859375" text="No." />
+                <TableColumn fx:id="Col_Exam_Date" prefWidth="88.0" text="Date" />
+                <TableColumn fx:id="Col_Course_Name" prefWidth="233.60003662109375" text=" Course Name" />
+                <TableColumn fx:id="Col_Time" prefWidth="80.80001831054688" text="Times" />
+                <TableColumn fx:id="Col_Room" prefWidth="79.20001220703125" text="Room" />
             </columns>
         </TableView>
-        <TableView id="offdaytable" fx:id="off_table" layoutX="17.0" layoutY="201.0" prefHeight="172.0" prefWidth="131.0">
+        <TableView id="offdaytable" fx:id="off_table" layoutX="8.0" layoutY="246.0" prefHeight="172.0" prefWidth="131.0">
             <columns>
                 <TableColumn fx:id="col_offday" prefWidth="129.0" text="Off Day List" />
             </columns>
         </TableView>
-        <Button fx:id="publish" contentDisplay="CENTER" layoutX="278.0" layoutY="480.0" mnemonicParsing="false" onAction="#RoutinePublishButton" prefHeight="39.0" prefWidth="131.0" styleClass="btn" text="Publish" textFill="#233242">
+        <Button fx:id="publish" contentDisplay="CENTER" layoutX="280.0" layoutY="480.0" mnemonicParsing="false" onAction="#RoutinePublishButton" prefHeight="39.0" prefWidth="131.0" styleClass="btn" text="Publish" textFill="#233242">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Button>
-        <Button fx:id="gadd" layoutX="33.0" layoutY="157.0" mnemonicParsing="false" onAction="#OffDayAddButton" prefHeight="25.0" prefWidth="95.0" styleClass="btn" stylesheets="@routine.css" text="Add" textFill="#233242">
+        <Button fx:id="gadd" layoutX="48.0" layoutY="173.0" mnemonicParsing="false" onAction="#OffDayAddButton" prefHeight="26.0" prefWidth="131.0" styleClass="btn" stylesheets="@routine.css" text="Add" textFill="#233242">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <Label fx:id="error" layoutX="14.0" layoutY="367.0" prefHeight="45.0" prefWidth="641.0" style="-fx-alignment: CENTER;" text="ERROR" textFill="#ee0303">
+        <Label fx:id="error" layoutX="181.0" layoutY="198.0" prefHeight="26.0" prefWidth="473.0" style="-fx-alignment: CENTER;" textFill="#ee0303">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <TextField fx:id="Start_time1" layoutX="241.0" layoutY="77.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
-        <TextField fx:id="End_time1" layoutX="397.0" layoutY="79.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
-        <DatePicker fx:id="Udate" layoutX="15.0" layoutY="442.0" opacity="0.82" prefHeight="25.0" prefWidth="110.0" promptText="Date" />
-        <TextField fx:id="Ucourse" layoutX="139.0" layoutY="442.0" prefHeight="25.0" prefWidth="228.0" promptText="Course Name" />
-        <TextField fx:id="Utime" layoutX="380.0" layoutY="442.0" prefHeight="25.0" prefWidth="102.0" promptText="Time" />
-        <TextField fx:id="UroomNo" layoutX="498.0" layoutY="442.0" prefHeight="25.0" prefWidth="80.0" promptText="Room No" />
-        <Button fx:id="gupdate" layoutX="592.0" layoutY="442.0" mnemonicParsing="false" onAction="#IndividualUpdateRoutineButton" prefHeight="25.0" prefWidth="64.0" styleClass="btn" stylesheets="@routine.css" text="Update" textFill="#fff5e4">
+        <TextField fx:id="Start_time1" layoutX="317.0" layoutY="56.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
+        <TextField fx:id="End_time1" layoutX="473.0" layoutY="58.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
+        <DatePicker fx:id="Udate" layoutX="44.0" layoutY="443.0" opacity="0.82" prefHeight="25.0" prefWidth="110.0" promptText="Date" />
+        <TextField fx:id="Ucourse" layoutX="160.0" layoutY="443.0" prefHeight="26.0" prefWidth="234.0" promptText="Course Name" />
+        <TextField fx:id="Utime" layoutX="400.0" layoutY="444.0" prefHeight="25.0" prefWidth="102.0" promptText="Time" />
+        <TextField fx:id="UroomNo" layoutX="506.0" layoutY="444.0" prefHeight="25.0" prefWidth="80.0" promptText="Room No" />
+        <Button fx:id="gupdate" layoutX="594.0" layoutY="443.0" mnemonicParsing="false" onAction="#IndividualUpdateRoutineButton" prefHeight="25.0" prefWidth="64.0" styleClass="btn" stylesheets="@routine.css" text="Update" textFill="#fff5e4">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <Label layoutX="313.0" layoutY="169.0" text="Examination Schedule" textFill="#233242">
+        <Label layoutX="326.0" layoutY="222.0" text="Examination Schedule" textFill="#233242">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Label>
-        <Label layoutX="14.0" layoutY="412.0" text="Update Schedule" textFill="#233242">
+        <Label layoutX="16.0" layoutY="421.0" text="Update Schedule" textFill="#233242">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Label>
-        <Label layoutX="373.0" layoutY="112.0" prefHeight="17.0" prefWidth="18.0" text="to" textFill="#233242" />
-        <TextField fx:id="Strat_time2" layoutX="242.0" layoutY="108.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
-        <TextField fx:id="Start_time2" layoutX="397.0" layoutY="107.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
-        <Label layoutX="170.0" layoutY="82.0" text="Shift -01 : " textFill="#233242">
+        <Label layoutX="449.0" layoutY="91.0" prefHeight="17.0" prefWidth="18.0" text="to" textFill="#233242" />
+        <TextField fx:id="Start_time2" layoutX="318.0" layoutY="87.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
+        <TextField fx:id="End_time2" layoutX="473.0" layoutY="86.0" prefHeight="25.0" prefWidth="120.0" promptText="23:59" />
+        <Label layoutX="246.0" layoutY="61.0" text="Shift -01 : " textFill="#233242">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Label>
-        <Label layoutX="170.0" layoutY="116.0" text="Shift -02 :" textFill="#233242">
+        <Label layoutX="246.0" layoutY="95.0" text="Shift -02 :" textFill="#233242">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Label>
-        <Label layoutX="268.0" layoutY="59.0" text="Start Time " textFill="#233242">
+        <Label layoutX="344.0" layoutY="38.0" text="Start Time " textFill="#233242">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Label>
-        <Label layoutX="421.0" layoutY="59.0" text="End Time " textFill="#233242">
+        <Label layoutX="497.0" layoutY="38.0" text="End Time " textFill="#233242">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Label>
-        <Label layoutX="176.0" layoutY="145.0" text="Room : " textFill="#233242">
+        <Label layoutX="252.0" layoutY="124.0" text="Room : " textFill="#233242">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Label>
-        <TextField fx:id="RoomNo" layoutX="240.0" layoutY="142.0" prefHeight="25.0" prefWidth="278.0" promptText="111--112--113--114" />
-      <Button fx:id="create" contentDisplay="CENTER" layoutX="527.0" layoutY="113.0" mnemonicParsing="false" onAction="#CreateRoutineButton" prefHeight="39.0" prefWidth="131.0" styleClass="btn" text="Create" textFill="#233242">
+        <TextField fx:id="RoomNo" layoutX="316.0" layoutY="121.0" prefHeight="25.0" prefWidth="278.0" promptText="111-112-113" />
+      <Button fx:id="create" contentDisplay="CENTER" layoutX="354.0" layoutY="151.0" mnemonicParsing="false" onAction="#CreateRoutineButton" prefHeight="31.0" prefWidth="186.0" styleClass="btn" text="Create" textFill="#233242">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <TextField fx:id="NoOfSelectedExam" layoutX="12.0" layoutY="443.0" prefHeight="26.0" prefWidth="30.0" promptText="No." />
     </children>
 
 </AnchorPane>

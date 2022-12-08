@@ -39,6 +39,7 @@ public class test2 {
 
 
 
+
         //all course name of batches
         Object obj1 =JSONValue.parse(jsonText);
         JSONObject CourseOFBatches_JsonObj = (JSONObject) obj1;
@@ -85,6 +86,8 @@ public class test2 {
 
 
         System.out.println(CourseOFBatches_JsonObj);
+        String jsonT = JSONValue.toJSONString(CourseOFBatches_JsonObj);
+        System.out.print(jsonT);
         System.out.println(assignedBatchOfThatCourse_JsonObj);
 
     }
