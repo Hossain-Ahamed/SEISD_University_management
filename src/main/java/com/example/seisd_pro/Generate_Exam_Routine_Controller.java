@@ -117,7 +117,7 @@ public class Generate_Exam_Routine_Controller {
     void OffDayAddButton(ActionEvent event) {
 
 
-        if(!offDayList.contains(Exam_Offdate.getValue())){
+        if(!offDayList.contains(Exam_Offdate.getValue())  && Exam_Offdate.getValue()!=null){
             offDayList.add(Exam_Offdate.getValue());
             offDayListTableClass offdayObj = new offDayListTableClass(Exam_Offdate.getValue());
             off_table.getItems().add(offdayObj);
