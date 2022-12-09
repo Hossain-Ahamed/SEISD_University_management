@@ -224,7 +224,7 @@ public class Generate_Exam_Routine_Controller {
             System.out.println(assignedBatchOfThatCourse_JsonObj);
 
             ExamScheduleTableClass examScheduleTableObj;
-                    examScheduleTableObj= new ExamScheduleTableClass(1,examStartDay,"CSE 1331","12:59","111");
+            examScheduleTableObj= new ExamScheduleTableClass(1,examStartDay,"CSE 1331","12:59","111");
             ESchedule_table.getItems().add(examScheduleTableObj);
             examScheduleTableObj= new ExamScheduleTableClass(2,examStartDay,"CSE 1331","12:59","111");
             ESchedule_table.getItems().add(examScheduleTableObj);
@@ -232,7 +232,7 @@ public class Generate_Exam_Routine_Controller {
             ESchedule_table.getItems().add(examScheduleTableObj);
 
         }else{
-           error.setText("Input Format or data is not correctly given.Try Again !!");
+            error.setText("Input Format or data is not correctly given.Try Again !!");
         }
 
 
