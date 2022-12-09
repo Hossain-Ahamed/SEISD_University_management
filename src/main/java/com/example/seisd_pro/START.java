@@ -16,11 +16,7 @@ public class START extends Application {
     @Override
     public void start(Stage window) throws IOException, ClassNotFoundException, SQLException {
 
-//        Class.forName("com.mysql.cj.jdbc.Driver");
-//        String url = "jdbc:mysql://uffttslvl1ffduya:bfDXWVyitdqs8PGBp4f4@bgs7tzjpys5zfnmraodc-mysql.services.clever-cloud.com:3306/bgs7tzjpys5zfnmraodc";
-//        String user = "uffttslvl1ffduya";
-//        String password = "bfDXWVyitdqs8PGBp4f4";
-
+        Class.forName("com.mysql.cj.jdbc.Driver");
         String url = "jdbc:mysql://uffttslvl1ffduya:bfDXWVyitdqs8PGBp4f4@bgs7tzjpys5zfnmraodc-mysql.services.clever-cloud.com:3306/bgs7tzjpys5zfnmraodc";
         String user = "uffttslvl1ffduya";
         String password = "bfDXWVyitdqs8PGBp4f4";
