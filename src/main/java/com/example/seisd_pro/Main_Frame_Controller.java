@@ -56,6 +56,8 @@ public class Main_Frame_Controller  implements Initializable {
 
     public void Exam_Routine(ActionEvent event) throws IOException{
         Exam_Routine_Controller.getBorderPane(borderpane);
+        Generate_Exam_Routine_Controller.getBorderPane(borderpane);
+        View_Exam_Routine_Controller.getBorderPane(borderpane);
         Parent fxml2 = FXMLLoader.load(getClass().getResource("Exam_Routine.fxml"));
         Pane fxml2scene = new Pane(fxml2);
         borderpane.setCenter(fxml2);

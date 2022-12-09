@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
@@ -44,18 +46,33 @@ public class Exam_Routine_Controller{
 
 
 
-    public void create(ActionEvent actionEvent) throws IOException {
+    public void create(ActionEvent actionEvent) throws IOException, SQLException {
 
-        Parent fxml2 = FXMLLoader.load(getClass().getResource("Generate_Exam_Routine.fxml"));
-        Pane fxml2scene = new Pane(fxml2);
+        String order = "SELECT COUNT(Date) FROM Routine";
+        String data = "";
+        ResultSet r = s.executeQuery(order);
+        while (r.next()) {
+            data = r.getString("COUNT(Date)");
 
-        borderPane.setCenter(fxml2);
+        }
+        if(Integer.parseInt(data)>0){
+            Parent fxml2 = FXMLLoader.load(getClass().getResource("View_Exam_Routine.fxml"));
+            Pane fxml2scene = new Pane(fxml2);
+            borderPane.setCenter(fxml2);
+        }else {
+
+            Parent fxml2 = FXMLLoader.load(getClass().getResource("Generate_Exam_Routine.fxml"));
+            Pane fxml2scene = new Pane(fxml2);
+            borderPane.setCenter(fxml2);
+        }
+
     }
 
     public void update(ActionEvent actionEvent) {
     }
 
     public void view(ActionEvent actionEvent) throws IOException {
+
         Parent fxml2 = FXMLLoader.load(getClass().getResource("View_Exam_Routine.fxml"));
         Pane fxml2scene = new Pane(fxml2);
 
