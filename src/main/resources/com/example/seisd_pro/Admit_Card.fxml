@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.seisd_pro.Admit_Card_Controller"
-            prefHeight="533.0" prefWidth="669.0">
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="533.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Admit_Card_Controller">
     <children>
         <Label layoutX="47.0" layoutY="121.0" prefHeight="25.0" prefWidth="59.0" text="Session" />
         <Button layoutX="42.0" layoutY="228.0" mnemonicParsing="false" onAction="#wee" style="-fx-background-color: GRAY;" text="Show" textFill="#212122">
@@ -28,11 +24,9 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Text>
-        <TextField layoutX="132.0" layoutY="175.0" prefHeight="25.0" prefWidth="392.0" promptText="------Enter your ID------" />
+        <TextField fx:id="stid" layoutX="132.0" layoutY="175.0" prefHeight="25.0" prefWidth="392.0" promptText="------Enter your ID------" />
         <Label layoutX="47.0" layoutY="179.0" prefHeight="25.0" prefWidth="59.0" text="ID" />
-        <ComboBox fx:id="session" layoutX="132.0" layoutY="121.0" prefHeight="25.0" prefWidth="392.0" promptText="------Select Session------" />
+        <TextField fx:id="sem" layoutX="132.0" layoutY="121.0" prefHeight="25.0" prefWidth="392.0" promptText="------Enter Semister (Without Space)------" />
     </children>
-
-
 
 </AnchorPane>

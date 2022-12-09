@@ -445,7 +445,7 @@ public class Generate_Exam_Routine_Controller {
 
        courseinfo = new HashMap<String, String>();
 
-       ;
+
         ResultSet r = s.executeQuery("SELECT * FROM `courseinfo`");
         while (r.next()) {
             courseinfo.put(r.getString("CourseCode"),r.getString("CourseName"));
