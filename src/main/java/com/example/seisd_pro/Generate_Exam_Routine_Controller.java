@@ -1,7 +1,6 @@
 package com.example.seisd_pro;
 
 import java.net.URL;
-import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -118,7 +117,7 @@ public class Generate_Exam_Routine_Controller {
     void OffDayAddButton(ActionEvent event) {
 
 
-        if(!offDayList.contains(Exam_Offdate.getValue())  && Exam_Offdate.getValue()!=null){
+        if (!offDayList.contains(Exam_Offdate.getValue()) && Exam_Offdate.getValue() != null) {
             offDayList.add(Exam_Offdate.getValue());
             offDayListTableClass offdayObj = new offDayListTableClass(Exam_Offdate.getValue());
             off_table.getItems().add(offdayObj);
@@ -129,192 +128,237 @@ public class Generate_Exam_Routine_Controller {
     }
 
     static LocalDate examStartDay;
-    String allocatedRooms,StartTime1,StartTime2,EndTime1,EndTime2;
+    String allocatedRooms, StartTime1, StartTime2, EndTime1, EndTime2;
     ArrayList<String> takenExamBatchShift = new ArrayList<>();
     ArrayList<String> takenExamBatchShift1 = new ArrayList<>();
     ArrayList<String> takenExamBatchShift2 = new ArrayList<>();
+
     private static String getJsonText(String order) throws SQLException {
 
-        String JsonText ="";
+        String JsonText = "";
         ResultSet r = s.executeQuery(order);
-        while (r.next()) {JsonText=r.getString("value");}
+        while (r.next()) {
+            JsonText = r.getString("value");
+        }
         return JsonText;
     }
 
-    private  static  JSONObject getJsonObj(String JSONTEXT){
-        Object obj =JSONValue.parse(JSONTEXT);
+    private static JSONObject getJsonObj(String JSONTEXT) {
+        Object obj = JSONValue.parse(JSONTEXT);
         JSONObject jsonObj = (JSONObject) obj;
-        return  jsonObj;
+        return jsonObj;
     }
-    String fixedTime="";
-    int fixedRoom=1;
-    int fixedShift =1;
-    int Batchcount =0;
-    String tempCourse="";
+
+    String fixedTime = "";
+    int fixedRoom = 1;
+    int fixedShift = 1;
+    int Batchcount = 0;
+    String tempCourse = "";
     int count = 1;
+    // Get info about the semester
+    String offeredCourseJsonText;
+    JSONObject CourseOFBatches_JsonObj;
+    JSONArray assignedCourse;
+    // Get info of batches according to the course of the semester
+    String runningCourseJsonData;
+    JSONObject assignedBatchOfThatCourse_JsonObj;
+    JSONArray assignedBatch;
+    ExamScheduleTableClass examScheduleTableObj;
+    Matcher matcher;
+    List<String> batchNo;
+    List<String> totalCourse_FOR_LOOP_TRAVERSAL;
+
+    Boolean avaialable =false;
+    Boolean otherbatchExamOnThatDay =true;
+
     @FXML
     void CreateRoutineButton(ActionEvent event) throws SQLException {
         error.setText("");
-
-
-        examStartDay= Exam_Startdate.getValue();
+        examStartDay = Exam_Startdate.getValue();
         allocatedRooms = RoomNo.getText().toString().trim();
         StartTime1 = Start_time1.getText().toString().trim();
         StartTime2 = Start_time2.getText().toString().trim();
         EndTime1 = End_time1.getText().toString().trim();
         EndTime2 = End_time2.getText().toString().trim();
 
-        ExamScheduleTableClass examScheduleTableObj;
 
-        fixedTime+= StartTime1+"-"+EndTime1;
+        fixedTime += StartTime1 + "-" + EndTime1;
 
         //given room for exam
         String regex = "^(.*?)-(.*?)-(.*?)$";
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(allocatedRooms);
+        matcher = pattern.matcher(allocatedRooms);
         matcher.find();  //matcher.group(1) = 111 ,matcher.group(2) = 112,matcher.group(3) = 113
 
 
-        if((examStartDay != null && matcher.matches() ==true && utilities.isValidTime(StartTime1.trim()) ==true && utilities.isValidTime(StartTime2)==true && utilities.isValidTime(EndTime1)==true  && utilities.isValidTime(EndTime2)==true) ){
+        if ((examStartDay != null && matcher.matches() == true && utilities.isValidTime(StartTime1.trim()) == true && utilities.isValidTime(StartTime2) == true && utilities.isValidTime(EndTime1) == true && utilities.isValidTime(EndTime2) == true)) {
 
             // Get info about the semester
-            String offeredCourseJsonText = getJsonText("SELECT * FROM `information` WHERE attribute ='courseOffer'");
-            JSONObject CourseOFBatches_JsonObj = getJsonObj(offeredCourseJsonText); //all course name of that batch
-            JSONArray assignedCourse ;
+            offeredCourseJsonText = getJsonText("SELECT * FROM `information` WHERE attribute ='courseOffer'");
+            CourseOFBatches_JsonObj = getJsonObj(offeredCourseJsonText); //all course name of that batch
 
             // Get info of batches according to the course of the semester
-            String runningCourseJsonData =getJsonText("SELECT * FROM `information` WHERE attribute ='runningCourseData'");
-            JSONObject assignedBatchOfThatCourse_JsonObj = getJsonObj(runningCourseJsonData);//batch name that are assigned to that course
-            JSONArray assignedBatch ;
+            runningCourseJsonData = getJsonText("SELECT * FROM `information` WHERE attribute ='runningCourseData'");
+            assignedBatchOfThatCourse_JsonObj = getJsonObj(runningCourseJsonData);//batch name that are assigned to that course
+
+            totalCourse_FOR_LOOP_TRAVERSAL = new ArrayList<String>(assignedBatchOfThatCourse_JsonObj.keySet());  //keyset-- total course count
+            batchNo = new ArrayList<String>(CourseOFBatches_JsonObj.keySet());//keyset of jar array --- the batch no in the List
+
+            while (totalCourse_FOR_LOOP_TRAVERSAL.size() > 0) {
 
 
-            List<String> totalCourse_FOR_LOOP_TRAVERSAL = new ArrayList<String>(assignedBatchOfThatCourse_JsonObj.keySet());  //keyset-- total course count
-
-            //keyset of jar array --- the batch no in the List
-            List<String> batchNo = new ArrayList<String>(CourseOFBatches_JsonObj.keySet());
-
-
-
-            while(totalCourse_FOR_LOOP_TRAVERSAL.size()>0){
-
-                assignedCourse= (JSONArray) CourseOFBatches_JsonObj.get(batchNo.get(Batchcount));
-                System.out.println("start "+batchNo.get(Batchcount) +"shift : "+fixedShift);
-
-
-
-
-                //if the batch is assigned for that day
-//                if((takenExamBatchShift1.contains(batchNo.get(Batchcount)) && fixedShift==1) || (takenExamBatchShift2.contains(batchNo.get(Batchcount)) && fixedShift==2)){
-//                    continue;
-//                }
+                if(offDayList.contains(examStartDay) == true || examStartDay.getDayOfWeek().toString() == "THURSDAY" || examStartDay.getDayOfWeek().toString() == "FRIDAY" ){
+                    incrementDayAction();
+                }
+                avaialable=true;
+                otherbatchExamOnThatDay=false;
+                assignedCourse = (JSONArray) CourseOFBatches_JsonObj.get(batchNo.get(Batchcount));
 
                 if(assignedCourse.size()>0){
-                    if(fixedShift==1){
-                        for (int i = 0; i < takenExamBatchShift1.size(); i++) {
-                            System.out.print(takenExamBatchShift1.get(i)+" ");
-                        }
-                    } else if (fixedShift==2) {
-                        for (int i = 0; i < takenExamBatchShift2.size(); i++) {
-                            System.out.print(takenExamBatchShift2.get(i)+" ");
-                        }
-                    }
-                    System.out.println("close");
-
-
-                    tempCourse = String.valueOf(assignedCourse.get(0));
-                    assignedBatch = (JSONArray) assignedBatchOfThatCourse_JsonObj.get(tempCourse); // batch data collect of that course
-                    System.out.println("for course"+tempCourse+" batch are"+assignedBatch);
-
-                    for (int i = 0; i < assignedBatch.size(); i++) {
-
-                        if(fixedShift==1){
-                            takenExamBatchShift1.add(assignedBatch.get(i).toString());
-                        }
-                        else {
-                            takenExamBatchShift2.add(assignedBatch.get(i).toString());
-                        }
-                        takenExamBatchShift.add(assignedBatch.get(i).toString());
-
-                    }
-                    //delete that course from the conflict and that own batch
-                    for (int i = 0; i < assignedBatch.size(); i++) {
-                        assignedCourse = (JSONArray) CourseOFBatches_JsonObj.get(assignedBatch.get(i).toString());
-
-                        assignedCourse.remove(tempCourse);
-                    }
-
-
-                    examScheduleTableObj= new ExamScheduleTableClass(count,examStartDay,tempCourse,fixedTime,matcher.group(fixedRoom));
-                    ESchedule_table.getItems().add(examScheduleTableObj);
-                    count++;
-
-
-                    //room changing
-                    if(fixedRoom ==3){
-                        fixedRoom=1;  //if all room are occupied than set the first room
-                        fixedShift++;   //increase shift to go next shift means ++, and next shift occupied than go to shift 1
-                    }else{
-                        fixedRoom++;
-                    }
-
-
-                    if(fixedShift==1) {
-                        fixedTime="";
-                        fixedTime+= StartTime1+"-"+EndTime1;
-                    }else{
-                        fixedTime="";
-                        fixedTime+= StartTime2+"-"+EndTime2;
-
-                        fixedShift = 1;
-                    }
-
-                    //date changing if exam all are taken for all batch
-                    if(takenExamBatchShift.size()== batchNo.size() || offDayList.contains(examStartDay)==true){
-                        takenExamBatchShift.clear();
-                        takenExamBatchShift1.clear();
-                        takenExamBatchShift2.clear();
-                        examStartDay = examStartDay.plusDays(1);
-
-                    }
-
-
+                    CheckAvailable(0);
+                }else{ // if all courses exam are taken for that batch
+                    avaialable=false;
                 }
 
 
-                totalCourse_FOR_LOOP_TRAVERSAL.remove(tempCourse);  //remove for loop traversal ,it will descrease size to end
-                System.out.println("");
-                //loop for batch traversal
+                if(otherbatchExamOnThatDay==true && avaialable ==false){
+//                    System.out.println(fixedShift +"     "+examStartDay+" "+tempCourse);
+                    tempCourse = String.valueOf(assignedCourse.get(0));
+                    for (int i = 1; i < assignedCourse.size(); i++) {
+                        CheckAvailable(i);
+                        if(avaialable==true){
+                            break;
+                        }
+                    }
+                }
 
-               if(Batchcount == (batchNo.size()-1)){
-                   Batchcount=0;
-               }else{
-                   Batchcount++;
+               if(avaialable==true){
+                       SetRoutine();
+                       Room_Shift_Change();
+
+               }
+               if(avaialable==false) { // whole batch k traverse krar por o jdi avaiable na hoy oi course assign kra, because of all batch are giving eexam or there is no exam for batch
+
+
+                   if(batchNo.size() ==(Batchcount+1)){
+                       incrementDayAction();
+                   }
                }
 
-               //break while loop when all assign completed
-                if (totalCourse_FOR_LOOP_TRAVERSAL.size()==0){
+               IncrementBatch();
+               IncrementExamDaysIf_all_batch_exam_taken_Or_Off_day();
+
+                if (totalCourse_FOR_LOOP_TRAVERSAL.size() == 0) {
                     error.setText("Completed");
                     break;
                 }
             }
 
-
-
-//            System.out.println(CourseOFBatches_JsonObj);
-//            String jsonT = JSONValue.toJSONString(CourseOFBatches_JsonObj);
-//            System.out.print(jsonT);
-//            System.out.println(assignedBatchOfThatCourse_JsonObj);
-
-
-        }else{
-           error.setText("Input Format or data is not correctly given.Try Again !!");
+        } else{
+            error.setText("Input Format or data is not correctly given.Try Again !!");
         }
+    }
+
+    private  void CheckAvailable(int count){
+        avaialable=true;
+        tempCourse = String.valueOf(assignedCourse.get(count));
+        assignedBatch = (JSONArray) assignedBatchOfThatCourse_JsonObj.get(tempCourse); // batch data collect of that course
+
+
+        //if any of the batch are assigned on that day, it won't go
+        for (int i = 0; i < assignedBatch.size(); i++) {
+            if(takenExamBatchShift.contains(assignedBatch.get(i).toString())){
+                avaialable=false;
+                otherbatchExamOnThatDay=true;
+                break;
+            }
+        }
+    }
+
+
+    private  void SetRoutine(){
+        String batches ="";
+
+        //add to taken exam
+        for (int i = 0; i < assignedBatch.size(); i++) {
+            if(!takenExamBatchShift.contains(assignedBatch.get(i).toString())){
+                takenExamBatchShift.add(assignedBatch.get(i).toString());
+            }
+
+            batches+=assignedBatch.get(i).toString();
+            batches+=" ";
+
+            //delete from the batch's courses
+            assignedCourse = (JSONArray) CourseOFBatches_JsonObj.get(assignedBatch.get(i).toString());
+
+            assignedCourse.remove(tempCourse);
+
+        }
+
+        examScheduleTableObj= new ExamScheduleTableClass(count,examStartDay,(tempCourse + " "+batches),fixedTime,matcher.group(fixedRoom));
+        System.out.println(count+" "+examStartDay+" "+(tempCourse + " "+batches)+" "+fixedTime+" "+matcher.group(fixedRoom));
+        ESchedule_table.getItems().add(examScheduleTableObj);
+
+        totalCourse_FOR_LOOP_TRAVERSAL.remove(tempCourse);  //remove for loop traversal ,it will descrease size to end
+        count++;
 
 
     }
- private  static  void setRoutine(){
 
- }
+    private  void Room_Shift_Change() {
+        //room changing
+        if (fixedRoom == 3) {
+            fixedRoom = 1;  //if all room are occupied than set the first room
+            fixedShift++;   //increase shift to go next shift means ++, and next shift occupied than go to shift 1
+        } else {
+            fixedRoom++;
+        }
+
+        if (fixedShift == 1) {
+            setTime();
+        } else if (fixedShift == 2) {
+            setTime();
+            if (fixedRoom == 3) {
+                fixedShift = 1;
+            }
+        }
+    }
+    private  void IncrementExamDaysIf_all_batch_exam_taken_Or_Off_day() {
+         //date changing if exam all are taken for all batch
+        if (takenExamBatchShift.size() == batchNo.size() ) {
+            incrementDayAction();
+
+        }
+    }
+    private  void setTime(){
+        if (fixedShift == 1) {
+            fixedTime = "";
+            fixedTime += StartTime1 + "-" + EndTime1;
+        } else if (fixedShift == 2) {
+            fixedTime = "";
+            fixedTime += StartTime2 + "-" + EndTime2;
+        }
+    }
+    private  void  incrementDayAction(){
+        fixedRoom=1;
+        fixedShift=1;
+        setTime();
+        takenExamBatchShift.clear();
+        takenExamBatchShift1.clear();
+        takenExamBatchShift2.clear();
+        examStartDay = examStartDay.plusDays(1);
+        if(offDayList.contains(examStartDay) == true || examStartDay.getDayOfWeek().toString() == "THURSDAY" || examStartDay.getDayOfWeek().toString() == "FRIDAY" ){
+            incrementDayAction();
+        }
+    }
+    private  void IncrementBatch( ){
+
+        if (Batchcount == (batchNo.size() - 1)) {
+            Batchcount = 0;
+        } else {
+            Batchcount++;
+        }
+    }
     @FXML
     void mouseEvent(MouseEvent event) {
         ExamScheduleTableClass clickedRow = ESchedule_table.getSelectionModel().getSelectedItem();
