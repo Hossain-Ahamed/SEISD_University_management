@@ -1,5 +1,6 @@
 package com.example.seisd_pro;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -15,6 +17,8 @@ import java.util.regex.Pattern;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -23,6 +27,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -133,6 +139,32 @@ public class Generate_Exam_Routine_Controller {
     ArrayList<String> takenExamBatchShift1 = new ArrayList<>();
     ArrayList<String> takenExamBatchShift2 = new ArrayList<>();
 
+
+    static BorderPane borderPane;
+    static  void getBorderPane(BorderPane borderPane){
+        Generate_Exam_Routine_Controller.borderPane = borderPane;
+    }
+
+
+    String fixedTime = "";
+    int fixedRoom = 1;
+    int fixedShift = 1;
+    int Batchcount = 0;
+    String tempCourse = "";
+    int count = 1;
+    // Get info about the semester
+    String offeredCourseJsonText,runningCourseJsonData;
+    JSONObject CourseOFBatches_JsonObj,assignedBatchOfThatCourse_JsonObj;
+    JSONArray assignedCourse,assignedBatch;
+
+    ExamScheduleTableClass examScheduleTableObj;
+    Matcher matcher;
+    List<String> batchNo;
+    List<String> totalCourse_FOR_LOOP_TRAVERSAL;
+
+    Boolean avaialable =false, otherbatchExamOnThatDay =true;
+
+
     private static String getJsonText(String order) throws SQLException {
 
         String JsonText = "";
@@ -148,32 +180,13 @@ public class Generate_Exam_Routine_Controller {
         JSONObject jsonObj = (JSONObject) obj;
         return jsonObj;
     }
-
-    String fixedTime = "";
-    int fixedRoom = 1;
-    int fixedShift = 1;
-    int Batchcount = 0;
-    String tempCourse = "";
-    int count = 1;
-    // Get info about the semester
-    String offeredCourseJsonText;
-    JSONObject CourseOFBatches_JsonObj;
-    JSONArray assignedCourse;
-    // Get info of batches according to the course of the semester
-    String runningCourseJsonData;
-    JSONObject assignedBatchOfThatCourse_JsonObj;
-    JSONArray assignedBatch;
-    ExamScheduleTableClass examScheduleTableObj;
-    Matcher matcher;
-    List<String> batchNo;
-    List<String> totalCourse_FOR_LOOP_TRAVERSAL;
-
-    Boolean avaialable =false;
-    Boolean otherbatchExamOnThatDay =true;
-
     @FXML
     void CreateRoutineButton(ActionEvent event) throws SQLException {
         error.setText("");
+
+
+        create.setDisable(true);
+        gadd.setDisable(true);
         examStartDay = Exam_Startdate.getValue();
         allocatedRooms = RoomNo.getText().toString().trim();
         StartTime1 = Start_time1.getText().toString().trim();
@@ -206,7 +219,6 @@ public class Generate_Exam_Routine_Controller {
 
             while (totalCourse_FOR_LOOP_TRAVERSAL.size() > 0) {
 
-
                 if(offDayList.contains(examStartDay) == true || examStartDay.getDayOfWeek().toString() == "THURSDAY" || examStartDay.getDayOfWeek().toString() == "FRIDAY" ){
                     incrementDayAction();
                 }
@@ -222,7 +234,6 @@ public class Generate_Exam_Routine_Controller {
 
 
                 if(otherbatchExamOnThatDay==true && avaialable ==false){
-//                    System.out.println(fixedShift +"     "+examStartDay+" "+tempCourse);
                     tempCourse = String.valueOf(assignedCourse.get(0));
                     for (int i = 1; i < assignedCourse.size(); i++) {
                         CheckAvailable(i);
@@ -235,16 +246,12 @@ public class Generate_Exam_Routine_Controller {
                if(avaialable==true){
                        SetRoutine();
                        Room_Shift_Change();
-
                }
                if(avaialable==false) { // whole batch k traverse krar por o jdi avaiable na hoy oi course assign kra, because of all batch are giving eexam or there is no exam for batch
-
-
                    if(batchNo.size() ==(Batchcount+1)){
                        incrementDayAction();
                    }
                }
-
                IncrementBatch();
                IncrementExamDaysIf_all_batch_exam_taken_Or_Off_day();
 
@@ -295,8 +302,8 @@ public class Generate_Exam_Routine_Controller {
 
         }
 
-        examScheduleTableObj= new ExamScheduleTableClass(count,examStartDay,(tempCourse + " "+batches),fixedTime,matcher.group(fixedRoom));
-        System.out.println(count+" "+examStartDay+" "+(tempCourse + " "+batches)+" "+fixedTime+" "+matcher.group(fixedRoom));
+
+        examScheduleTableObj= new ExamScheduleTableClass(count,examStartDay,(courseinfo.get(tempCourse) + "["+batches+"]"),fixedTime,matcher.group(fixedRoom));
         ESchedule_table.getItems().add(examScheduleTableObj);
 
         totalCourse_FOR_LOOP_TRAVERSAL.remove(tempCourse);  //remove for loop traversal ,it will descrease size to end
@@ -382,7 +389,6 @@ public class Generate_Exam_Routine_Controller {
                 examScheduleTable.setCourseName(Ucourse.getText().trim());
                 examScheduleTable.setExamRoom(UroomNo.getText().trim());
                 examScheduleTable.setExamTime(Utime.getText().trim());
-
                 ESchedule_table.setItems(currentTableData);
                 ESchedule_table.refresh();
                 break;
@@ -392,15 +398,52 @@ public class Generate_Exam_Routine_Controller {
 
     }
 
+    private String removeLastChar(String s)
+    {
+
+        return s.substring(0, s.length() - 1);
+    }
 
     @FXML
-    void RoutinePublishButton(ActionEvent event) {
+    void RoutinePublishButton(ActionEvent event) throws SQLException, IOException {
+        publish.setDisable(true);
+        ObservableList<ExamScheduleTableClass> currentTableData = ESchedule_table.getItems();
+
+
+        String order = "INSERT INTO `Routine` (`Date`, `courseName`, `times`, `room`) VALUES ";
+        for (ExamScheduleTableClass examScheduleTable:  currentTableData) {
+
+            order += "('"+examScheduleTable.getExamDate().toString()+"', '"+examScheduleTable.getCourseName().toString()+"', '"+examScheduleTable.getExamTime().toString()+"', '"+examScheduleTable.getExamRoom().toString()+"') ,";
+
+
+
+        }
+        order = removeLastChar(order);
+        s.executeUpdate(order);
+
+        Parent fxml2 = FXMLLoader.load(getClass().getResource("View_Exam_Routine.fxml"));
+        Pane fxml2scene = new Pane(fxml2);
+        borderPane.setCenter(fxml2);
 
     }
+
+    HashMap<String, String> courseinfo;
     @FXML
-    void initialize() {
+    void initialize() throws SQLException {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
+
+
+       courseinfo = new HashMap<String, String>();
+
+       ;
+        ResultSet r = s.executeQuery("SELECT * FROM `courseinfo`");
+        while (r.next()) {
+            courseinfo.put(r.getString("CourseCode"),r.getString("CourseName"));
+
+        }
+
+
 
 
         NoOfSelectedExam.setEditable(false);
