@@ -185,8 +185,8 @@ public class Generate_Exam_Routine_Controller {
         error.setText("");
 
 
-        create.setDisable(true);
-        gadd.setDisable(true);
+
+
         examStartDay = Exam_Startdate.getValue();
         allocatedRooms = RoomNo.getText().toString().trim();
         StartTime1 = Start_time1.getText().toString().trim();
@@ -257,6 +257,8 @@ public class Generate_Exam_Routine_Controller {
 
                 if (totalCourse_FOR_LOOP_TRAVERSAL.size() == 0) {
                     error.setText("Completed");
+                    create.setDisable(true);
+                    gadd.setDisable(true);
                     break;
                 }
             }
@@ -264,6 +266,7 @@ public class Generate_Exam_Routine_Controller {
         } else{
             error.setText("Input Format or data is not correctly given.Try Again !!");
         }
+
     }
 
     private  void CheckAvailable(int count){
@@ -391,10 +394,16 @@ public class Generate_Exam_Routine_Controller {
                 examScheduleTable.setExamTime(Utime.getText().trim());
                 ESchedule_table.setItems(currentTableData);
                 ESchedule_table.refresh();
+                Udate.setValue(null);
+                Ucourse.setText("");
+                Utime.setText("");
+                UroomNo.setText("");
+                NoOfSelectedExam.setText("");
                 break;
             }
 
         }
+
 
     }
 

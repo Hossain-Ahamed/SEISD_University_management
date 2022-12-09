@@ -22,7 +22,7 @@ public class Main_Frame_Controller  implements Initializable {
     private BorderPane borderpane;
 
     public void profile1() throws IOException {
-        Parent fxml2 = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+        Parent fxml2 = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
         Pane fxml2scene = new Pane(fxml2);
 
         borderpane.setCenter(fxml2);

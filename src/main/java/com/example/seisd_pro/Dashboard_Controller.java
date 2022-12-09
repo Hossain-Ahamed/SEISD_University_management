@@ -2,11 +2,22 @@ package com.example.seisd_pro;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class Dashboard_Controller {
     static Connection c1;
@@ -32,10 +43,44 @@ public class Dashboard_Controller {
     public Button LogOut;
 
 
+    private static String getJsonText(String order) throws SQLException {
+
+        String JsonText = "";
+        ResultSet r = s.executeQuery(order);
+        while (r.next()) {
+            JsonText = r.getString("value");
+        }
+        return JsonText;
+    }
+
+    private static JSONObject getJsonObj(String JSONTEXT) {
+        Object obj = JSONValue.parse(JSONTEXT);
+        JSONObject jsonObj = (JSONObject) obj;
+        return jsonObj;
+    }
+
     @FXML
-    void initialize() {
+    void initialize() throws SQLException {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
+
+
+
+
+        ResultSet r = s.executeQuery("SELECT COUNT(CourseCode) FROM `courseinfo`");
+        while (r.next()) {
+
+            TotalCourse.setText(r.getString("COUNT(CourseCode)"));
+
+        }
+
+       String runningCourseJsonData = getJsonText("SELECT * FROM `information` WHERE attribute ='runningCourseData'");
+        JSONObject assignedBatchOfThatCourse_JsonObj = getJsonObj(runningCourseJsonData);//batch name that are assigned to that course
+
+        ArrayList <String>totalCourse_FOR_LOOP_TRAVERSAL = new ArrayList<String>(assignedBatchOfThatCourse_JsonObj.keySet());
+
+        RunningCourse.setText(String.valueOf(totalCourse_FOR_LOOP_TRAVERSAL.size()));
+
     }
 
     public void StudentPassed(ActionEvent actionEvent) {
@@ -56,6 +101,11 @@ public class Dashboard_Controller {
     public void Payment(ActionEvent actionEvent) {
     }
 
-    public void LogOut(ActionEvent actionEvent) {
+    public void LogOut(ActionEvent actionEvent) throws IOException {
+        Parent fxml2 = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene fxml2scene = new Scene(fxml2);
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        window.setScene(fxml2scene);
+        window.show();
     }
 }

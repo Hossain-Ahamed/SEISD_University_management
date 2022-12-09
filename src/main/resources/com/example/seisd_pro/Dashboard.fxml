@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Dashboard_Controller">
+<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Dashboard_Controller">
    <children>
       <HBox layoutX="18.0" layoutY="23.0" prefHeight="127.0" prefWidth="634.0" spacing="10.0">
          <children>
@@ -203,7 +203,7 @@
                         </Label>
                         <Label fx:id="StudentPassedNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="2.2k" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
@@ -228,7 +228,7 @@
                         </Label>
                         <Label fx:id="StudentFailedNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="2.1k" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
@@ -253,7 +253,7 @@
                         </Label>
                         <Label fx:id="AttendanceNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="15" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
@@ -282,7 +282,7 @@
                         </Label>
                         <Label fx:id="MakeUpClassNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="15" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
@@ -307,7 +307,7 @@
                         </Label>
                         <Label fx:id="QuizNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="5" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
@@ -332,7 +332,7 @@
                         </Label>
                         <Label fx:id="PaymentNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="2.1k" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
@@ -348,6 +348,6 @@
             </Button>
          </children>
       </HBox>
-      <Button fx:id="LogOut" layoutX="237.0" layoutY="456.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="30.0" prefWidth="196.0" style="-fx-background-color: #06283D;" styleClass="btn" text="LogOut" textFill="WHITE" />
+      <Button fx:id="LogOut" layoutX="526.0" layoutY="462.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #FC574E;" styleClass="btn" text="SIGN OUT" textFill="WHITE" />
    </children>
 </AnchorPane>
