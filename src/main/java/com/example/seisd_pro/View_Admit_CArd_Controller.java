@@ -79,17 +79,9 @@ public class View_Admit_CArd_Controller {
         String B = null;
 
         stuid.setText("ID NO :  " +student_id);
-        //sname.setText(" Student Name : ");
-        //sbatch.setText(" Batch : ");
         subcode.setCellValueFactory(new PropertyValueFactory<>("subcode"));
         subname.setCellValueFactory(new PropertyValueFactory<>("subname"));
         subcredit.setCellValueFactory(new PropertyValueFactory<>("subcredit"));
-
-            //thorugh the connection, so it can be used later
-
-
-
-
 
         String id = "SELECT * FROM student where id = '"+student_id+"'" ;
         System.out.println(id);
@@ -104,18 +96,11 @@ public class View_Admit_CArd_Controller {
             System.out.println(jason_Data_JsonObj);
             JSONArray jason_data_student;
 
-            // List<String> l = new ArrayList<String>(jason_Data_JsonObj.keySet());
-            //jason_data_student= (JSONArray) jason_Data_JsonObj.get(l.get(0));
+
             String jason_name = (String) jason_Data_JsonObj.get("name");
 
             JSONArray subject = (JSONArray) jason_Data_JsonObj.get(""+semister);
-            //System.out.println(subject.get(1));
 
-//            for(int i =0; i<subject.size();i++){
-//                listview.add(new Admit_card_TableModel(
-//                        subcode ==  subject;
-//                ));
-//            }
             JSONObject obj ;
             System.out.println(subject);
             for(int i =0; i<subject.size();i++){

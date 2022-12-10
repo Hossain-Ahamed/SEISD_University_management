@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -40,7 +41,7 @@ public class Admit_Card_Controller {
     private TextField stid;
 
     @FXML
-    private TextField sem;
+    private ComboBox<String> semi;
 
     private Parent root;
     private Stage stage;
@@ -51,15 +52,7 @@ public class Admit_Card_Controller {
         ResultSet rs;
         int count = 0;
         String sid = stid.getText();
-        String semister = sem.getText();
-//        Alert aler = new Alert(Alert.AlertType.ERROR);
-//        aler.setTitle("Error Dialog");
-//        aler.setHeaderText(sid);
-//        aler.setContentText("Insert a student id no.");
-//        aler.showAndWait();
-
-
-
+        String Se = semi.getValue();
         if(sid.trim().equals("")){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
@@ -76,18 +69,24 @@ public class Admit_Card_Controller {
                 rs = s.executeQuery(id);
                 while(rs.next()){
                     String x = rs.getString("id");
-                    //System.out.println(x);
-
                     count++;
                 }
+                if(Se == null){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Dialog");
+                    alert.setHeaderText("Semistar doesn't selected");
+                    alert.setContentText("Select the current semistar");
+                    alert.showAndWait();
+                }
+                else{ count++;}
                 if(count == 0){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Wrong Id");
                     alert.setContentText("Insert a Correct student id no.");
                     alert.showAndWait();
-                }else{
-                    // Create a new stage for the popup window
+                }
+                else if(count > 1){
                     Stage popupWindow = new Stage();
                     popupWindow.initStyle(StageStyle.UTILITY);
                     popupWindow.initModality(Modality.APPLICATION_MODAL);
@@ -99,11 +98,10 @@ public class Admit_Card_Controller {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("View_Admit_Card.fxml"));
                     Parent root = loader.load();
                     View_Admit_CArd_Controller viewAdmitCArdController = loader.getController();
-                    viewAdmitCArdController.displayID(sid,semister);
+                    viewAdmitCArdController.displayID(sid,Se);
                     Scene popupScene = new Scene(root);
                     popupWindow.setScene(popupScene);
                     popupWindow.show();
-
 
                 }
 
@@ -120,6 +118,8 @@ public class Admit_Card_Controller {
     void initialize() {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
+        semi.getItems().add(utilities.thisSemester());
+
 
 
     }
