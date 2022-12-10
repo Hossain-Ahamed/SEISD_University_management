@@ -1,6 +1,8 @@
 package com.example.seisd_pro;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class utilities {
@@ -20,6 +22,11 @@ public class utilities {
         return !"".equals(string.trim());
     }
 
+    public  static  String getTimeDate(){
+        java.util.Date date = new java.util.Date();
+        return date.toString();
+
+    }
     //return true if string is a digit
     public static boolean isInteger(String digit) {
         int tryuserID;

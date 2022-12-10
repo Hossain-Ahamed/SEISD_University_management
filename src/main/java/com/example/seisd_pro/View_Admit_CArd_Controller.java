@@ -78,7 +78,7 @@ public class View_Admit_CArd_Controller {
         String A = null;
         String B = null;
 
-        stuid.setText(" ID NO :  " +student_id);
+        stuid.setText("ID NO :  " +student_id);
         //sname.setText(" Student Name : ");
         //sbatch.setText(" Batch : ");
         subcode.setCellValueFactory(new PropertyValueFactory<>("subcode"));
@@ -140,8 +140,8 @@ public class View_Admit_CArd_Controller {
 
 
             }
-            sbatch.setText(" Batch : "+x);
-            sname.setText(" Student Name : "+jason_name);
+            sbatch.setText("Batch : "+x);
+            sname.setText("Student Name : "+jason_name);
 
 
     }

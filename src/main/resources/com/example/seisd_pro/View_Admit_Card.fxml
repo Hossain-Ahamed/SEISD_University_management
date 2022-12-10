@@ -9,60 +9,65 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.View_Admit_CArd_Controller">
+<AnchorPane prefHeight="610.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.View_Admit_CArd_Controller">
     <children>
-        <TableView fx:id="table" layoutX="59.0" layoutY="241.0" prefHeight="200.0" prefWidth="507.0">
+        <TableView fx:id="table" layoutX="86.0" layoutY="302.0" prefHeight="200.0" prefWidth="507.0">
             <columns>
                 <TableColumn fx:id="subcode" prefWidth="75.0" text="Sub Code" />
                 <TableColumn fx:id="subname" prefWidth="351.20001220703125" text="Subject Name" />
                 <TableColumn fx:id="subcredit" minWidth="0.0" prefWidth="80.00003051757812" text="Credit" />
             </columns>
         </TableView>
-        <Button fx:id="printbtn" layoutX="59.0" layoutY="491.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" style="-fx-background-color: #0b068c99;" text="Print" textFill="#ffffffec">
+        <Button fx:id="printbtn" layoutX="59.0" layoutY="550.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" style="-fx-background-color: #0b068c99;" text="Print" textFill="#ffffffec">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font></Button>
-        <Label layoutX="271.0" layoutY="40.0" prefHeight="27.0" prefWidth="262.0" text="Ranada Prasad Shaha University">
+        <Label layoutX="209.0" layoutY="28.0" prefHeight="27.0" prefWidth="262.0" text="Ranada Prasad Shaha University">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <ImageView fitHeight="63.0" fitWidth="66.0" layoutX="198.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="63.0" fitWidth="66.0" layoutX="136.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@logo.png" />
             </image>
         </ImageView>
-        <Label layoutX="283.0" layoutY="67.0" text="-an institution of kumudini welfare trust of Bengal (BD) Ltd." />
-        <Label fx:id="sname" layoutX="59.0" layoutY="107.0" prefHeight="19.0" prefWidth="322.0">
+        <Label layoutX="221.0" layoutY="55.0" text="-an institution of kumudini welfare trust of Bengal (BD) Ltd." />
+        <Label fx:id="sname" layoutX="87.0" layoutY="150.0" prefHeight="19.0" prefWidth="322.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label fx:id="stuid" layoutX="59.0" layoutY="146.0" prefHeight="19.0" prefWidth="215.0">
+        <Label fx:id="stuid" layoutX="88.0" layoutY="188.0" prefHeight="19.0" prefWidth="215.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label fx:id="sbatch" layoutX="58.0" layoutY="180.0" prefHeight="19.0" prefWidth="106.0">
+        <Label fx:id="sbatch" layoutX="89.0" layoutY="222.0" prefHeight="19.0" prefWidth="106.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="62.0" layoutY="213.0" text="Program : ">
+        <Label layoutX="87.0" layoutY="254.0" text="Program : ">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="126.0" layoutY="214.0" prefHeight="18.0" prefWidth="254.0" text="Bacholer of Computer Science &amp; Engineering">
+        <Label layoutX="156.0" layoutY="256.0" prefHeight="18.0" prefWidth="254.0" text="Bachelor of Computer Science &amp; Engineering">
             <font>
                 <Font name="System Bold Italic" size="12.0" />
             </font>
         </Label>
-        <Label layoutX="451.0" layoutY="458.0" text="Authorize Signature">
+        <Label layoutX="466.0" layoutY="545.0" text="Authorize Signature">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
+      <Label layoutX="207.0" layoutY="84.0" prefHeight="18.0" prefWidth="232.0" style="-fx-alignment: CENTER;" text="ADMIT CARD" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
     </children>
 
 </AnchorPane>
