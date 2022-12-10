@@ -23,6 +23,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static java.lang.System.gc;
+
 public class Admit_Card_Controller {
     static Connection c1;
     static Statement s;
@@ -102,6 +104,7 @@ public class Admit_Card_Controller {
                         Scene popupScene = new Scene(root);
                         popupWindow.setScene(popupScene);
                         popupWindow.show();
+                        gc();
 
                     }
 

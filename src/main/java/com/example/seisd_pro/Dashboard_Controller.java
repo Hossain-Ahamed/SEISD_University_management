@@ -19,6 +19,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import static java.lang.System.gc;
+
 public class Dashboard_Controller {
     static Connection c1;
     static Statement s;
@@ -81,6 +83,7 @@ public class Dashboard_Controller {
 
         RunningCourse.setText(String.valueOf(totalCourse_FOR_LOOP_TRAVERSAL.size()));
 
+        gc();
     }
 
     public void StudentPassed(ActionEvent actionEvent) {
@@ -102,6 +105,7 @@ public class Dashboard_Controller {
     }
 
     public void LogOut(ActionEvent actionEvent) throws IOException {
+        gc();
         Parent fxml2 = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene fxml2scene = new Scene(fxml2);
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

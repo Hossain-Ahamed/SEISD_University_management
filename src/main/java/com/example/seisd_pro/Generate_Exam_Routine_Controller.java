@@ -33,6 +33,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+import static java.lang.System.gc;
+
 public class Generate_Exam_Routine_Controller {
 
     static Connection c1;
@@ -184,6 +186,7 @@ public class Generate_Exam_Routine_Controller {
     void CreateRoutineButton(ActionEvent event) throws SQLException {
         error.setText("");
 
+        gc();
 
 
 
@@ -439,6 +442,7 @@ public class Generate_Exam_Routine_Controller {
     HashMap<String, String> courseinfo;
     @FXML
     void initialize() throws SQLException {
+        gc();
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
 

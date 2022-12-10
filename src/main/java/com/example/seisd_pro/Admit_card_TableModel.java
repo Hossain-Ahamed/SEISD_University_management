@@ -32,4 +32,5 @@ public class Admit_card_TableModel {
     public void setSubcredit(String subcredit) {
         this.subcredit = subcredit;
     }
+
 }

@@ -18,6 +18,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import static java.lang.System.gc;
+
 public class Exam_Routine_Controller{
     static Connection c1;
     static Statement s;
@@ -47,7 +49,7 @@ public class Exam_Routine_Controller{
 
 
     public void create(ActionEvent actionEvent) throws IOException, SQLException {
-
+        gc();
         String order = "SELECT COUNT(Date) FROM Routine";
         String data = "";
         ResultSet r = s.executeQuery(order);
@@ -56,11 +58,12 @@ public class Exam_Routine_Controller{
 
         }
         if(Integer.parseInt(data)>0){
+            gc();
             Parent fxml2 = FXMLLoader.load(getClass().getResource("View_Exam_Routine.fxml"));
             Pane fxml2scene = new Pane(fxml2);
             borderPane.setCenter(fxml2);
         }else {
-
+            gc();
             Parent fxml2 = FXMLLoader.load(getClass().getResource("Generate_Exam_Routine.fxml"));
             Pane fxml2scene = new Pane(fxml2);
             borderPane.setCenter(fxml2);
@@ -72,7 +75,7 @@ public class Exam_Routine_Controller{
     }
 
     public void view(ActionEvent actionEvent) throws IOException {
-
+        gc();
         Parent fxml2 = FXMLLoader.load(getClass().getResource("View_Exam_Routine.fxml"));
         Pane fxml2scene = new Pane(fxml2);
 

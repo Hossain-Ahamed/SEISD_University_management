@@ -20,6 +20,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
+import static java.lang.System.gc;
+
 public class View_Exam_Routine_Controller {
     static Connection c1;
     static Statement s;
@@ -53,6 +55,7 @@ public class View_Exam_Routine_Controller {
 
     @FXML
     void DeleteExamRoutine(ActionEvent event) throws SQLException, IOException {
+        gc();
         Delete.setDisable(true);
         s.executeUpdate("TRUNCATE TABLE `Routine` ");
         ObservableList<viewRoutinetable> currentTableData = ESchedule_table.getItems();
@@ -79,7 +82,7 @@ public class View_Exam_Routine_Controller {
         private  String date,coursename,time,room;
     @FXML
     void initialize() throws SQLException {
-
+        gc();
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
 

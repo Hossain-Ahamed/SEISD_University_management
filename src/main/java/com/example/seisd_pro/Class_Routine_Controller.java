@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.Statement;
 
+import static java.lang.System.gc;
+
 public class Class_Routine_Controller{
     static Connection c1;
     static Statement s;
@@ -16,6 +18,7 @@ public class Class_Routine_Controller{
     void initialize() {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
+
 
     }
 }
