@@ -53,61 +53,63 @@ public class Admit_Card_Controller {
         int count = 0;
         String sid = stid.getText();
         String Se = semi.getValue();
-        if(sid.trim().equals("")){
+        if(Se == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Blank ID");
-            alert.setContentText("Insert a student id no.");
-
+            alert.setTitle("Error");
+            alert.setHeaderText("Semester is not selected");
+            alert.setContentText("SELECT THE CURRENT SEMESTER");
             alert.showAndWait();
-        }
-        else {
-
-
-            String id = "SELECT id FROM student where id = "+sid+"" ;
-            try {
-                rs = s.executeQuery(id);
-                while(rs.next()){
-                    String x = rs.getString("id");
-                    count++;
-                }
-                if(Se == null){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error Dialog");
-                    alert.setHeaderText("Semistar doesn't selected");
-                    alert.setContentText("Select the current semistar");
-                    alert.showAndWait();
-                }
-                else{ count++;}
-                if(count == 0){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error Dialog");
-                    alert.setHeaderText("Wrong Id");
-                    alert.setContentText("Insert a Correct student id no.");
-                    alert.showAndWait();
-                }
-                else if(count > 1){
-                    Stage popupWindow = new Stage();
-                    popupWindow.initStyle(StageStyle.UTILITY);
-                    popupWindow.initModality(Modality.APPLICATION_MODAL);
-                    popupWindow.setTitle(utilities.getTimeDate());
-                    popupWindow.setWidth(670);
-                    popupWindow.setHeight(650);
-                    popupWindow.setX(500);
-                    popupWindow.setY(50);
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("View_Admit_Card.fxml"));
-                    Parent root = loader.load();
-                    View_Admit_CArd_Controller viewAdmitCArdController = loader.getController();
-                    viewAdmitCArdController.displayID(sid,Se);
-                    Scene popupScene = new Scene(root);
-                    popupWindow.setScene(popupScene);
-                    popupWindow.show();
-
-                }
-
+        }else{
+            if(sid.trim().equals("")){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("ID field is blank");
+                alert.setContentText("Insert Student ID");
+                alert.showAndWait();
             }
-            catch (SQLException ex){
-                Logger.getLogger(Admit_Card_Controller.class.getName()).log(Level.SEVERE, null, ex);
+            else {
+
+
+                String id = "SELECT id FROM student where id = "+sid+"" ;
+                try {
+                    rs = s.executeQuery(id);
+                    while(rs.next()){
+                        String x = rs.getString("id");
+                        count++;
+                    }
+
+
+                    if(count == 0){
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText(sid.trim()+ " not found");
+                        alert.setContentText("Insert  Correct Student ID");
+                        alert.showAndWait();
+                    }
+                    else if(count > 0){
+                        Stage popupWindow = new Stage();
+                        popupWindow.initStyle(StageStyle.UTILITY);
+                        popupWindow.initModality(Modality.APPLICATION_MODAL);
+                        popupWindow.setTitle(utilities.getTimeDate());
+                        popupWindow.setWidth(670);
+                        popupWindow.setHeight(650);
+                        popupWindow.setX(500);
+                        popupWindow.setY(50);
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("View_Admit_Card.fxml"));
+                        Parent root = loader.load();
+                        View_Admit_CArd_Controller viewAdmitCArdController = loader.getController();
+                        viewAdmitCArdController.displayID(sid,Se);
+                        Scene popupScene = new Scene(root);
+                        popupWindow.setScene(popupScene);
+                        popupWindow.show();
+
+                    }
+
+                }
+                catch (SQLException ex){
+                    Logger.getLogger(Admit_Card_Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
 
         }
