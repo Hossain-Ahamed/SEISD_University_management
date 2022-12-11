@@ -64,7 +64,7 @@ public class CourseDataEntry {
     private TextField selected_courseNameText;
 
     @FXML
-    private ComboBox<?> semName;
+    private ComboBox<String> semName;
 
     @FXML
     void ConfirmCourseOffer(ActionEvent event) {
@@ -97,6 +97,7 @@ public class CourseDataEntry {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
 
+        semName.getItems().add(utilities.thisSemester());
 
         col_courseCode.setCellValueFactory(new PropertyValueFactory<>("CourseCode"));
         col_courseName.setCellValueFactory(new PropertyValueFactory<>("CourseName"));
