@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Admit_Card_Controller">
+<AnchorPane prefHeight="533.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Admit_Card_Controller">
     <children>
         <Button layoutX="42.0" layoutY="228.0" mnemonicParsing="false" onAction="#wee" style="-fx-background-color: GRAY;" text="Show" textFill="#212122">
             <font>
@@ -19,7 +19,7 @@
                 <Font name="System Bold" size="27.0" />
             </font>
         </Text>
-        <Text layoutX="47.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Session">
+        <Text layoutX="42.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Session">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
@@ -29,7 +29,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <ComboBox fx:id="semi" layoutX="132.0" layoutY="79.0" prefHeight="26.0" prefWidth="392.0" promptText="Current Semistar" />
+      <ComboBox fx:id="semi" layoutX="132.0" layoutY="99.0" prefHeight="26.0" prefWidth="392.0" promptText="Current Semester" />
     </children>
 
 </AnchorPane>
