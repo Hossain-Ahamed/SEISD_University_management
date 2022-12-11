@@ -27,6 +27,7 @@ public class START extends Application {
 
         //thorugh the connection, so it can be used later
         new jdbc(c1,s);
+        utilities.setJDBC(c1,s);
 
 
         // Get info about the semester

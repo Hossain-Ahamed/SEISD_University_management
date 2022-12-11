@@ -1,11 +1,22 @@
 package com.example.seisd_pro;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class utilities {
+    static Connection c1;
+    static Statement s;
+    public static void setJDBC(Connection c1, Statement s){
+        utilities.c1 = c1;
+        utilities.s = s;
+    }
     public static String semsterName;
 
     public static void setSemester(String semsterName) {
@@ -13,6 +24,20 @@ public class utilities {
     }
 
 
+    public static String getJsonText(String order) throws SQLException {
+
+        String JsonText = "";
+        ResultSet r = s.executeQuery(order);
+        while (r.next()) {
+            JsonText = r.getString("value");
+        }
+        return JsonText;
+    }
+    public static JSONObject getJsonObj(String JSONTEXT) {
+        Object obj = JSONValue.parse(JSONTEXT);
+        JSONObject jsonObj = (JSONObject) obj;
+        return jsonObj;
+    }
     public static String thisSemester() {
         return utilities.semsterName;
     }

@@ -2,7 +2,11 @@ package com.example.seisd_pro;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +17,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 public class CourseDataEntry {
     static Connection c1;
@@ -34,7 +40,7 @@ public class CourseDataEntry {
     private TableView<Code_Name_Credit_table> availableCourseTable;
 
     @FXML
-    private ComboBox<?> batchNo;
+    private ComboBox<String> batchNo;
 
     @FXML
     private TableColumn<?, ?> col_courseCode;
@@ -92,10 +98,23 @@ public class CourseDataEntry {
     }
 
 
+
+    String offeredCourseJsonText;
+    JSONObject CourseOFBatches_JsonObj;
+    List<String> batches;
     @FXML
-    void initialize() {
+    void initialize() throws SQLException {
+
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
+
+        // Get info about the semester
+        offeredCourseJsonText = utilities.getJsonText("SELECT * FROM `information` WHERE attribute ='courseOffer'");
+        CourseOFBatches_JsonObj = utilities.getJsonObj(offeredCourseJsonText); //all course name of that batch
+        batches = new ArrayList<String>(CourseOFBatches_JsonObj.keySet());
+         for (int i =0; i<batches.size();i++){
+             batchNo.getItems().add(batches.get(i));
+         }
 
         semName.getItems().add(utilities.thisSemester());
 
