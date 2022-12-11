@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="533.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Main_Frame_Controller">
+<AnchorPane prefHeight="533.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Main_Frame_Controller">
     <children>
         <BorderPane fx:id="borderpane" layoutX="-9.0" prefHeight="533.0" prefWidth="836.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <left>
@@ -32,7 +32,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Course_Offer" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #FFF5E4;" text="Course Offer" textFill="#233242">
+                        <Button mnemonicParsing="false" onAction="#Course_Offer" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #FFF5E4;" text="Academic" textFill="#233242">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>

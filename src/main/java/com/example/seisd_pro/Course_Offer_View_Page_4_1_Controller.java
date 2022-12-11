@@ -42,7 +42,7 @@ public class Course_Offer_View_Page_4_1_Controller {
     private TableColumn<?, ?> col_credit;
 
     @FXML
-    private ChoiceBox<?> semester;
+    private ChoiceBox<String> semester;
 
     @FXML
     void sBatch(MouseEvent event) {
@@ -67,6 +67,9 @@ public class Course_Offer_View_Page_4_1_Controller {
         col_courseCode.setCellValueFactory(new PropertyValueFactory<>("CourseCode"));
         col_courseName.setCellValueFactory(new PropertyValueFactory<>("CourseName"));
         col_credit.setCellValueFactory(new PropertyValueFactory<>("CourseCredit"));
+        semester.getItems().add("All Time");
+        semester.getItems().add("Current Semester");
+
     }
 
 }

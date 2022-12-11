@@ -91,10 +91,12 @@ public class CourseDataEntry {
 
     }
 
+
     @FXML
     void initialize() {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
+
 
         col_courseCode.setCellValueFactory(new PropertyValueFactory<>("CourseCode"));
         col_courseName.setCellValueFactory(new PropertyValueFactory<>("CourseName"));

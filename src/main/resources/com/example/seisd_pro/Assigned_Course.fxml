@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="533.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Assign_Course_Controller">
+    <children>
+        <Button layoutX="263.0" layoutY="294.0" mnemonicParsing="false" onAction="#proceed" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #66bb6a;" text="Proceed" textFill="#212122">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font></Button>
+        <Text fill="#000000cc" fontSmoothingType="LCD" layoutX="249.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assign Course">
+            <font>
+                <Font name="System Bold" size="27.0" />
+            </font>
+        </Text>
+        <Text layoutX="97.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Session">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Text>
+        <TextField fx:id="stid" layoutX="187.0" layoutY="219.0" prefHeight="25.0" prefWidth="392.0" promptText="ie. 20100064" />
+        <Label layoutX="102.0" layoutY="219.0" prefHeight="25.0" prefWidth="59.0" text="ID">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <ComboBox fx:id="semi" layoutX="187.0" layoutY="165.0" prefHeight="26.0" prefWidth="392.0" promptText="Current Semester" />
+    </children>
+
+</AnchorPane>
