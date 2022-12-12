@@ -7,13 +7,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Course_Offer_View_Page_4_1_Controller {
@@ -51,6 +51,7 @@ public class Course_Offer_View_Page_4_1_Controller {
     @FXML
     void sBatch(MouseEvent event) {
 
+
     }
 
     @FXML
@@ -59,11 +60,45 @@ public class Course_Offer_View_Page_4_1_Controller {
     }
 
     @FXML
-    void showTable(MouseEvent event) {
+    void showTable(ActionEvent event) throws SQLException {
+       
+        if(batch.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Batch Not Selected");
+            alert.setContentText("Select a Batch");
+            alert.showAndWait();
+
+        }else{
+            if(semester.getValue()==null){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Semester not Selected");
+                alert.setContentText("Select a Semester");
+                alert.showAndWait();
+
+            }else{
+                if(semester.getValue().equalsIgnoreCase("Completed")){
+                    // Get info about the semester
+                    offeredCourseJsonText = utilities.getJsonText("SELECT * FROM `information` WHERE attribute ='completedCourse'");
+                    CourseOFBatches_JsonObj = utilities.getJsonObj(offeredCourseJsonText); //all course name of that batch
+                    JSONArray listOfSubjectJsonArray = (JSONArray)CourseOFBatches_JsonObj.get(batch.getValue());
+                    System.out.println(listOfSubjectJsonArray);
+                } else if (semester.getValue().equalsIgnoreCase("Current Semester")) {
+                    // Get info about the semester
+                    offeredCourseJsonText = utilities.getJsonText("SELECT * FROM `information` WHERE attribute ='courseOffer'");
+                    CourseOFBatches_JsonObj = utilities.getJsonObj(offeredCourseJsonText); //all course name of that batch
+                    JSONArray listOfSubjectJsonArray = (JSONArray)CourseOFBatches_JsonObj.get(batch.getValue());
+
+                    System.out.println(listOfSubjectJsonArray);
+                }
+
+            }
+        }
 
     }
-    String offeredCourseJsonText;
-    JSONObject CourseOFBatches_JsonObj;
+    static  String offeredCourseJsonText;
+    static JSONObject CourseOFBatches_JsonObj;
     List<String> batches;
     @FXML
     void initialize() throws SQLException {
@@ -82,7 +117,7 @@ public class Course_Offer_View_Page_4_1_Controller {
         col_courseCode.setCellValueFactory(new PropertyValueFactory<>("CourseCode"));
         col_courseName.setCellValueFactory(new PropertyValueFactory<>("CourseName"));
         col_credit.setCellValueFactory(new PropertyValueFactory<>("CourseCredit"));
-        semester.getItems().add("All Time");
+        semester.getItems().add("Completed");
         semester.getItems().add("Current Semester");
 
     }
