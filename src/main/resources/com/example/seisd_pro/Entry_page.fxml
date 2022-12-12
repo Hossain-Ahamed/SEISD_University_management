@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Course_Offer_Controller">
+   <children>
+      <VBox alignment="CENTER" layoutY="-3.0" prefHeight="33.0" prefWidth="669.0" style="-fx-background-color: #f4f7ed;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-alignment: center;" text="Course Entry " textAlignment="RIGHT" textFill="#233242">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow height="41.04" radius="9.76" spread="0.16" width="0.0" />
+         </effect>
+      </VBox>
+      <Label layoutX="76.0" layoutY="80.0" text="Name:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="76.0" layoutY="110.0" text="Batch:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="76.0" layoutY="144.0" text="ID:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="77.0" layoutY="179.0" text="Department:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TableView layoutX="76.0" layoutY="224.0" prefHeight="220.0" prefWidth="526.0">
+         <columns>
+            <TableColumn fx:id="col_courseCode" prefWidth="131.99996185302734" text="Course Code" />
+            <TableColumn fx:id="col_courseName" prefWidth="252.7999267578125" text="Course Title" />
+            <TableColumn fx:id="col_credit" prefWidth="162.39999389648438" text="Course Credit" />
+         </columns>
+      </TableView>
+      <Button fx:id="btn_save" layoutX="546.0" layoutY="464.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #233242;" text="Show" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="128.0" layoutY="80.0" text="Label" textFill="#233242" />
+      <Label layoutX="128.0" layoutY="110.0" text="Label" textFill="#233242" />
+      <Label layoutX="128.0" layoutY="144.0" text="Label" textFill="#233242" />
+      <Label layoutX="156.0" layoutY="179.0" text="Label" textFill="#233242" />
+   </children>
+</AnchorPane>
