@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.CourseDataEntry">
+<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.CourseDataEntry">
    <children>
       <ComboBox fx:id="semName" layoutX="119.0" layoutY="18.0" prefHeight="25.0" prefWidth="171.0" promptText="Semster Name" />
       <ComboBox fx:id="batchNo" layoutX="303.0" layoutY="19.0" prefHeight="25.0" prefWidth="171.0" promptText="Batch" />
@@ -19,7 +19,10 @@
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <Button fx:id="availableCourseShowBTN" layoutX="515.0" layoutY="19.0" mnemonicParsing="false" onAction="#availableCourseShow" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #66bb6a; -fx-alignment: CENTER;" styleClass="btn" stylesheets="@routine.css" text="Show" />
+      <Button fx:id="availableCourseShowBTN" layoutX="515.0" layoutY="19.0" mnemonicParsing="false" onAction="#availableCourseShow" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #66bb6a; -fx-alignment: CENTER;" styleClass="btn" stylesheets="@routine.css" text="Show" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <TableView fx:id="availableCourseTable" layoutX="14.0" layoutY="91.0" onMouseClicked="#availableCourseTableMouseEvent" prefHeight="430.0" prefWidth="354.0">
         <columns>
           <TableColumn fx:id="col_courseCode" prefWidth="66.0" text="Code" />
