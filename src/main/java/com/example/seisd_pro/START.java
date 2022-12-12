@@ -38,6 +38,11 @@ public class START extends Application {
         while (r.next()) {sem=r.getString("value");}
         utilities.setSemester(sem);
 
+        utilities.AllCourseData();
+
+//        System.out.println(utilities.AllCourseJsonObj);
+//        System.out.println(utilities.AllCourseNameArray);
+
 
 
 

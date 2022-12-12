@@ -50,7 +50,7 @@
             <TableColumn fx:id="col_credit" prefWidth="162.39999389648438" text="Course Credit" />
          </columns>
       </TableView>
-      <Button fx:id="btn_save" layoutX="546.0" layoutY="464.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #233242;" text="Show" textFill="WHITE">
+      <Button layoutX="293.0" layoutY="464.0" mnemonicParsing="false" onAction="#save_button" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: #233242;" text="Register" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

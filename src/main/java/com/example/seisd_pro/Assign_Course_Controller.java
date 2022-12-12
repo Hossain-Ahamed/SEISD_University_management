@@ -57,6 +57,8 @@ public class Assign_Course_Controller {
                 ResultSet rs = s.executeQuery("SELECT id FROM student where id = "+stid.getText().trim()+"");
                 while(rs.next()){
                     String x = rs.getString("id");
+
+
                     count++;
                 }
             }

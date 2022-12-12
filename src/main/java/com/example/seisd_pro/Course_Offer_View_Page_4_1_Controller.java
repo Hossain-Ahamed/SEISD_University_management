@@ -61,6 +61,7 @@ public class Course_Offer_View_Page_4_1_Controller {
 
     @FXML
     void showTable(ActionEvent event) throws SQLException {
+        Course_table.getItems().clear();
        
         if(batch.getValue() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -84,6 +85,11 @@ public class Course_Offer_View_Page_4_1_Controller {
                     CourseOFBatches_JsonObj = utilities.getJsonObj(offeredCourseJsonText); //all course name of that batch
                     JSONArray listOfSubjectJsonArray = (JSONArray)CourseOFBatches_JsonObj.get(batch.getValue());
                     System.out.println(listOfSubjectJsonArray);
+                    for (int i = 0; i < listOfSubjectJsonArray.size(); i++) {
+
+                        Code_Name_Credit_table ob = new Code_Name_Credit_table((String)listOfSubjectJsonArray.get(i), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Name"), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Credit"));
+                        Course_table.getItems().add(ob);
+                    }
                 } else if (semester.getValue().equalsIgnoreCase("Current Semester")) {
                     // Get info about the semester
                     offeredCourseJsonText = utilities.getJsonText("SELECT * FROM `information` WHERE attribute ='courseOffer'");
@@ -91,6 +97,11 @@ public class Course_Offer_View_Page_4_1_Controller {
                     JSONArray listOfSubjectJsonArray = (JSONArray)CourseOFBatches_JsonObj.get(batch.getValue());
 
                     System.out.println(listOfSubjectJsonArray);
+                    for (int i = 0; i < listOfSubjectJsonArray.size(); i++) {
+
+                        Code_Name_Credit_table ob = new Code_Name_Credit_table((String)listOfSubjectJsonArray.get(i), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Name"), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Credit"));
+                        Course_table.getItems().add(ob);
+                    }
                 }
 
             }

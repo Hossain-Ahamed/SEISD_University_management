@@ -37,6 +37,7 @@ public class Main_Frame_Controller  implements Initializable {
     public void Course_Offer(ActionEvent event) throws IOException{
         Assign_Course_Controller.borderPane = borderpane;
         Course_Offer_Controller.borderPane = borderpane;
+        Student_View_Page_Controller.borderPane =borderpane;
         Parent fxml2 = FXMLLoader.load(getClass().getResource("Course_Offer.fxml"));
         Pane fxml2scene = new Pane(fxml2);
 

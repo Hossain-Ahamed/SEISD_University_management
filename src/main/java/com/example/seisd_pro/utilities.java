@@ -1,4 +1,5 @@
 package com.example.seisd_pro;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
@@ -38,6 +39,24 @@ public class utilities {
         JSONObject jsonObj = (JSONObject) obj;
         return jsonObj;
     }
+
+    static JSONObject AllCourseJsonObj = new JSONObject();
+    static JSONArray  AllCourseNameArray= new JSONArray();
+
+    public static void AllCourseData() throws SQLException {
+       ResultSet r = s.executeQuery("SELECT * FROM `courseinfo`");
+       while(r.next()){
+           String CourseCode = r.getString("CourseCode");
+           String CourseName = r.getString("CourseName");
+           String CourseCredit = r.getString("Credit");
+           String Prerequisite = r.getString("Prerequisite");
+           AllCourseNameArray.add(CourseCode);
+       AllCourseJsonObj.put(CourseCode + "Name",CourseName);
+       AllCourseJsonObj.put(CourseCode + "Credit",CourseCredit);
+       AllCourseJsonObj.put(CourseCode + "Prerequisite",Prerequisite);
+       }
+    }
+
     public static String thisSemester() {
         return utilities.semsterName;
     }
