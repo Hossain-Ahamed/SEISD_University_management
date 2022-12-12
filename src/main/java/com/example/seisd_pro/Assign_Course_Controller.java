@@ -68,10 +68,10 @@ public class Assign_Course_Controller {
                 alert.showAndWait();
             }else if(count > 0){
 
-               // CourseDataEntry.id =stid.getText().trim();
-//                Parent fxml2 = FXMLLoader.load(getClass().getResource("Individual_Data_Entry.fxml"));
-//                Pane fxml2scene = new Pane(fxml2);
-//                borderPane.setCenter(fxml2);
+                Student_View_Page_Controller.id =stid.getText().trim();
+                Parent fxml2 = FXMLLoader.load(getClass().getResource("Student_View_page.fxml"));
+                Pane fxml2scene = new Pane(fxml2);
+                borderPane.setCenter(fxml2);
 
             }
 
@@ -90,6 +90,7 @@ public class Assign_Course_Controller {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
         semi.getItems().add(utilities.thisSemester());
+
 
     }
 
