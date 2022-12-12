@@ -6,51 +6,87 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.NewStudentEntry">
+<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.NewStudentEntry">
     <children>
-        <Label layoutX="278.0" layoutY="61.0" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #ffffe6;" text="New Student Entry" textAlignment="CENTER">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="71.0" layoutY="147.0" text="First Name" />
-        <Label layoutX="72.0" layoutY="305.0" text="Student ID" />
-        <Label layoutX="71.0" layoutY="353.0" text="Running Semester" />
-        <Label layoutX="394.0" layoutY="306.0" text="Batch" />
-        <TextField fx:id="FName" layoutX="153.0" layoutY="143.0" prefHeight="25.0" prefWidth="151.0" promptText="Enter First Name" />
-        <TextField fx:id="SID" layoutX="153.0" layoutY="301.0" prefHeight="25.0" prefWidth="151.0" promptText="Student ID" />
-        <TextField fx:id="Batch" layoutX="451.0" layoutY="301.0" prefHeight="25.0" prefWidth="151.0" promptText="Enter Batch Number" />
-        <ComboBox fx:id="semester" layoutX="198.0" layoutY="349.0" prefHeight="25.0" prefWidth="289.0" promptText="Select Semester" />
+        <Label layoutX="68.0" layoutY="129.0" text="First Name:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+        <Label layoutX="69.0" layoutY="287.0" text="Student ID:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+        <Label layoutX="68.0" layoutY="335.0" text="Running Semeste:r" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+        <Label layoutX="391.0" layoutY="288.0" text="Batch:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+        <TextField fx:id="FName" layoutX="150.0" layoutY="125.0" prefHeight="26.0" prefWidth="175.0" promptText="Enter First Name" />
+        <TextField fx:id="SID" layoutX="150.0" layoutY="283.0" prefHeight="25.0" prefWidth="151.0" promptText="Student ID" />
+        <TextField fx:id="Batch" layoutX="448.0" layoutY="283.0" prefHeight="25.0" prefWidth="151.0" promptText="Enter Batch Number" />
+        <ComboBox fx:id="semester" layoutX="195.0" layoutY="331.0" prefHeight="25.0" prefWidth="289.0" promptText="Select Semester" />
         <Button layoutX="554.0" layoutY="431.0" mnemonicParsing="false" onAction="#Save" style="-fx-background-color: #ccffe6;" text="Save">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Button>
-        <Label layoutX="68.0" layoutY="104.0" text="Basic Information">
+        <Label layoutX="64.0" layoutY="74.0" text="Basic Information">
             <font>
-                <Font name="System Bold" size="12.0" />
+                <Font name="System Bold" size="16.0" />
             </font>
         </Label>
-        <Label layoutX="370.0" layoutY="147.0" text="Last Name" />
-        <TextField fx:id="LName" layoutX="452.0" layoutY="143.0" promptText="Enter Last Name" />
-        <RadioButton layoutX="219.0" layoutY="220.0" mnemonicParsing="false" text="Female" />
-        <RadioButton layoutX="292.0" layoutY="220.0" mnemonicParsing="false" text="Others" />
-        <RadioButton layoutX="153.0" layoutY="219.0" mnemonicParsing="false" text="Male" />
-        <DatePicker fx:id="DOT" layoutX="153.0" layoutY="178.0" />
-        <Label layoutX="70.0" layoutY="184.0" text="Date of Birth" />
-        <Label layoutX="70.0" layoutY="220.0" text="Gender" />
-        <Label layoutX="370.0" layoutY="182.0" text="Religion" />
-        <ComboBox fx:id="Religion" layoutX="452.0" layoutY="180.0" prefWidth="150.0" promptText="Select Religion" />
+        <Label layoutX="367.0" layoutY="129.0" text="Last Name:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+        <TextField fx:id="LName" layoutX="449.0" layoutY="125.0" promptText="Enter Last Name" />
+        <RadioButton layoutX="216.0" layoutY="202.0" mnemonicParsing="false" text="Female" />
+        <RadioButton layoutX="289.0" layoutY="202.0" mnemonicParsing="false" text="Others" />
+        <RadioButton layoutX="150.0" layoutY="201.0" mnemonicParsing="false" text="Male" />
+        <DatePicker fx:id="DOT" layoutX="150.0" layoutY="160.0" />
+        <Label layoutX="67.0" layoutY="166.0" text="Date of Birth:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+        <Label layoutX="67.0" layoutY="202.0" text="Gender:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+        <Label layoutX="367.0" layoutY="164.0" text="Religion:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+        <ComboBox fx:id="Religion" layoutX="449.0" layoutY="162.0" prefWidth="150.0" promptText="Select Religion" />
         <Button layoutX="68.0" layoutY="431.0" mnemonicParsing="false" onAction="#update_basic_info" style="-fx-background-color: #ccebff;" text="Update Basic Info">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Button>
-      <TextField fx:id="Address" layoutX="154.0" layoutY="254.0" prefHeight="25.0" prefWidth="450.0" />
-      <Label layoutX="72.0" layoutY="258.0" text="Address" />
+      <TextField fx:id="Address" layoutX="151.0" layoutY="236.0" prefHeight="25.0" prefWidth="450.0" />
+      <Label layoutX="69.0" layoutY="240.0" text="Address:" textFill="#233242">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <VBox alignment="CENTER" layoutY="-3.0" prefHeight="33.0" prefWidth="669.0" style="-fx-background-color: #f4f7ed;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-alignment: center;" text="New Student Entry" textAlignment="RIGHT" textFill="#233242">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow height="41.04" radius="9.76" spread="0.16" width="0.0" />
+         </effect>
+      </VBox>
     </children>
 
 </AnchorPane>
