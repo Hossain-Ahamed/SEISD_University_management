@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.CourseDataEntry">
+<AnchorPane prefHeight="533.0" prefWidth="669.0" style="-fx-background-color: #fff5e4;" styleClass="routine" stylesheets="@routine.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.CourseDataEntry">
    <children>
       <ComboBox fx:id="semName" layoutX="119.0" layoutY="18.0" prefHeight="25.0" prefWidth="171.0" promptText="Semster Name" />
       <ComboBox fx:id="batchNo" layoutX="303.0" layoutY="19.0" prefHeight="25.0" prefWidth="171.0" promptText="Batch" />
@@ -50,8 +50,8 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="selected_courseCodeTEXT" layoutX="375.0" layoutY="426.0" prefHeight="25.0" prefWidth="55.0" />
-      <TextField fx:id="selected_courseNameText" layoutX="435.0" layoutY="426.0" prefHeight="25.0" prefWidth="153.0" />
+      <TextField fx:id="selected_courseCodeTEXT" editable="false" layoutX="375.0" layoutY="426.0" prefHeight="25.0" prefWidth="55.0" />
+      <TextField fx:id="selected_courseNameText" editable="false" layoutX="435.0" layoutY="426.0" prefHeight="25.0" prefWidth="153.0" />
       <Button fx:id="selected_courseDeleteBTN" layoutX="594.0" layoutY="426.0" mnemonicParsing="false" onAction="#selected_courseDelete" prefHeight="18.0" prefWidth="63.0" style="-fx-background-color: #f76565; -fx-text-fill: WHITE; -fx-alignment: CENTER;" styleClass="btn" stylesheets="@routine.css" text="Delete" />
       <Button fx:id="ConfirmCourseOfferBTN" layoutX="417.0" layoutY="473.0" mnemonicParsing="false" onAction="#ConfirmCourseOffer" prefHeight="33.0" prefWidth="201.0" style="-fx-background-color: #61a4fa; -fx-alignment: CENTER; -fx-text-fill: WHITE;" styleClass="btn" stylesheets="@routine.css" text="Confirm">
          <font>
