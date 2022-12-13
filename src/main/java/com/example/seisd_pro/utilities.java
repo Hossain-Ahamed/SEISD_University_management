@@ -24,7 +24,11 @@ public class utilities {
         utilities.semsterName = semsterName;
     }
 
-
+    public static   Object getStringValueObj(String key,String value){
+        JSONObject obj=new JSONObject();
+        obj.put(key,value);
+        return obj;
+    }
     public static String getJsonText(String order) throws SQLException {
 
         String JsonText = "";

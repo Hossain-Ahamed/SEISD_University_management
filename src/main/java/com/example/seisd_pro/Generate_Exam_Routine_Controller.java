@@ -254,7 +254,7 @@ public class Generate_Exam_Routine_Controller {
                IncrementExamDaysIf_all_batch_exam_taken_Or_Off_day();
 
                 if (totalCourse_FOR_LOOP_TRAVERSAL.size() == 0) {
-                    Alert alert = new Alert(Alert.AlertType.NONE);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("Confirmation");
                     alert.setHeaderText("Routine creation completed");
                     alert.setContentText("Select from table to edit or Click publish");
@@ -360,11 +360,11 @@ public class Generate_Exam_Routine_Controller {
         }
     }
     private  void setTime(){
+        fixedTime = "";
         if (fixedShift == 1) {
-            fixedTime = "";
+
             fixedTime += StartTime1 + "-" + EndTime1;
         } else if (fixedShift == 2) {
-            fixedTime = "";
             fixedTime += StartTime2 + "-" + EndTime2;
         }
     }

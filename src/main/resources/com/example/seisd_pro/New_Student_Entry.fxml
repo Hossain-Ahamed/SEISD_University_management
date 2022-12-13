@@ -21,7 +21,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-        <Label layoutX="68.0" layoutY="335.0" text="Running Semeste:r" textFill="#233242">
+        <Label layoutX="68.0" layoutY="335.0" text="Running Semester" textFill="#233242">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
@@ -48,9 +48,9 @@
             <Font name="System Bold" size="12.0" />
          </font></Label>
         <TextField fx:id="LName" layoutX="449.0" layoutY="125.0" promptText="Enter Last Name" />
-        <RadioButton layoutX="216.0" layoutY="202.0" mnemonicParsing="false" text="Female" />
-        <RadioButton layoutX="289.0" layoutY="202.0" mnemonicParsing="false" text="Others" />
-        <RadioButton layoutX="150.0" layoutY="201.0" mnemonicParsing="false" text="Male" />
+        <RadioButton fx:id="female" layoutX="216.0" layoutY="202.0" mnemonicParsing="false" text="Female" />
+        <RadioButton fx:id="others" layoutX="289.0" layoutY="202.0" mnemonicParsing="false" text="Others" />
+        <RadioButton fx:id="male" layoutX="150.0" layoutY="201.0" mnemonicParsing="false" text="Male" />
         <DatePicker fx:id="DOT" layoutX="150.0" layoutY="160.0" />
         <Label layoutX="67.0" layoutY="166.0" text="Date of Birth:" textFill="#233242">
          <font>
