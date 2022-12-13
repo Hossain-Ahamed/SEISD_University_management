@@ -93,7 +93,7 @@ public class Student_View_Page_Controller {
 
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
+            alert.setTitle("Warning!!!!!");
             alert.setHeaderText("Already Registered!!!");
             alert.showAndWait();
         }
@@ -140,7 +140,7 @@ public class Student_View_Page_Controller {
                 }
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
+                alert.setTitle("Warning!!!!!");
                 alert.setHeaderText("No data For this batch");
                 alert.setContentText("Provide data in Entry page");
                 alert.showAndWait();
