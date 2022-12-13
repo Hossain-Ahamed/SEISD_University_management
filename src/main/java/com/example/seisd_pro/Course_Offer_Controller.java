@@ -42,7 +42,10 @@ public class Course_Offer_Controller {
     private Label StudentPassedNum;
 
     @FXML
-    void Add_Batch(ActionEvent event) {
+    void Add_Batch(ActionEvent event) throws IOException {
+        Parent fxml2 = FXMLLoader.load(getClass().getResource("Add_Batch.fxml"));
+        Pane fxml2scene = new Pane(fxml2);
+        borderPane.setCenter(fxml2);
 
     }
 
@@ -78,10 +81,6 @@ public class Course_Offer_Controller {
 
     }
 
-    @FXML
-    void New_Sem(ActionEvent event) {
-
-    }
     static BorderPane borderPane;
     @FXML
     void initialize() {

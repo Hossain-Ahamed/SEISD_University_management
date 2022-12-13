@@ -38,60 +38,6 @@
                   </VBox>
                </graphic>
             </Button>
-            <Button contentDisplay="CENTER" layoutX="238.0" layoutY="10.0" mnemonicParsing="false" onAction="#Add_Batch" prefHeight="121.0" prefWidth="205.0" style="-fx-background-color: #004d40; -fx-cursor: HAND;" textAlignment="CENTER" textFill="#f2f2f2">
-               <graphic>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Label prefHeight="37.0" prefWidth="185.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="Add Batch" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="StudentFailedNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@Dashboard_Image/user2.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
-                     </children>
-                  </VBox>
-               </graphic>
-            </Button>
-            <Button contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#New_Sem" prefHeight="121.0" prefWidth="205.0" style="-fx-background-color: #f44336; -fx-cursor: HAND;" textAlignment="CENTER" textFill="#f2f2f2">
-               <graphic>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Label prefHeight="37.0" prefWidth="185.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="New Semester" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="AttendanceNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@Dashboard_Image/attendace.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
-                     </children>
-                  </VBox>
-               </graphic>
-            </Button>
-         </children>
-      </HBox>
-      <HBox layoutX="18.0" layoutY="267.0" prefHeight="99.0" prefWidth="634.0" spacing="10.0">
-         <children>
             <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Course_Entry" prefHeight="121.0" prefWidth="205.0" style="-fx-background-color: #607d8b; -fx-cursor: HAND;" textAlignment="CENTER" textFill="#f2f2f2">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
@@ -117,16 +63,45 @@
                   </VBox>
                </graphic>
             </Button>
-            <Button contentDisplay="CENTER" layoutX="238.0" layoutY="10.0" mnemonicParsing="false" onAction="#Course_View" prefHeight="121.0" prefWidth="205.0" style="-fx-background-color: #66bb6a; -fx-cursor: HAND;" textAlignment="CENTER" textFill="#f2f2f2">
+            <Button contentDisplay="CENTER" layoutX="238.0" layoutY="10.0" mnemonicParsing="false" onAction="#Add_Batch" prefHeight="121.0" prefWidth="205.0" style="-fx-background-color: #004d40; -fx-cursor: HAND;" textAlignment="CENTER" textFill="#f2f2f2">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label prefHeight="37.0" prefWidth="185.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="Course View" textFill="WHITE">
+                        <Label prefHeight="37.0" prefWidth="185.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="Add Batch" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="StudentFailedNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Dashboard_Image/user2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="18.0" layoutY="267.0" prefHeight="99.0" prefWidth="634.0" spacing="10.0">
+         <children>
+            <Button contentDisplay="CENTER" layoutX="238.0" layoutY="10.0" mnemonicParsing="false" onAction="#Course_View" prefHeight="99.0" prefWidth="314.0" style="-fx-background-color: #66bb6a; -fx-cursor: HAND;" textAlignment="CENTER" textFill="#f2f2f2">
+               <graphic>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="321.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="Course View" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="QuizNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="QuizNum" prefHeight="45.0" prefWidth="306.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -142,16 +117,16 @@
                   </VBox>
                </graphic>
             </Button>
-            <Button contentDisplay="CENTER" layoutX="238.0" layoutY="10.0" mnemonicParsing="false" onAction="#Assign_Course" prefHeight="121.0" prefWidth="205.0" style="-fx-background-color: #b71c1c; -fx-cursor: HAND;" textAlignment="CENTER" textFill="#f2f2f2">
+            <Button contentDisplay="CENTER" layoutX="238.0" layoutY="10.0" mnemonicParsing="false" onAction="#Assign_Course" prefHeight="99.0" prefWidth="322.0" style="-fx-background-color: #b71c1c; -fx-cursor: HAND;" textAlignment="CENTER" textFill="#f2f2f2">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label prefHeight="37.0" prefWidth="185.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="Assign Course" textFill="WHITE">
+                        <Label prefHeight="37.0" prefWidth="285.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" text="Assign Course" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="PaymentNum" prefHeight="45.0" prefWidth="211.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="PaymentNum" prefHeight="45.0" prefWidth="292.0" style="-fx-text-fill: #FFFFF; -fx-alignment: CENTER;" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
