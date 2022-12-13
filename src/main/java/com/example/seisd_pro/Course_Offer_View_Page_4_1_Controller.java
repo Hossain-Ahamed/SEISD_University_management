@@ -84,29 +84,34 @@ public class Course_Offer_View_Page_4_1_Controller {
                     offeredCourseJsonText = utilities.getJsonText("SELECT * FROM `information` WHERE attribute ='completedCourse'");
                     CourseOFBatches_JsonObj = utilities.getJsonObj(offeredCourseJsonText); //all course name of that batch
                     JSONArray listOfSubjectJsonArray = (JSONArray)CourseOFBatches_JsonObj.get(batch.getValue());
-                    System.out.println(listOfSubjectJsonArray);
-                    for (int i = 0; i < listOfSubjectJsonArray.size(); i++) {
+                    loadTable(listOfSubjectJsonArray);
 
-                        Code_Name_Credit_table ob = new Code_Name_Credit_table((String)listOfSubjectJsonArray.get(i), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Name"), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Credit"));
-                        Course_table.getItems().add(ob);
-                    }
                 } else if (semester.getValue().equalsIgnoreCase("Current Semester")) {
                     // Get info about the semester
                     offeredCourseJsonText = utilities.getJsonText("SELECT * FROM `information` WHERE attribute ='courseOffer'");
                     CourseOFBatches_JsonObj = utilities.getJsonObj(offeredCourseJsonText); //all course name of that batch
                     JSONArray listOfSubjectJsonArray = (JSONArray)CourseOFBatches_JsonObj.get(batch.getValue());
+                    loadTable(listOfSubjectJsonArray);
 
-                    System.out.println(listOfSubjectJsonArray);
-                    for (int i = 0; i < listOfSubjectJsonArray.size(); i++) {
-
-                        Code_Name_Credit_table ob = new Code_Name_Credit_table((String)listOfSubjectJsonArray.get(i), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Name"), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Credit"));
-                        Course_table.getItems().add(ob);
-                    }
                 }
 
             }
         }
 
+    }
+    private    void loadTable(JSONArray dataArray){
+        if(dataArray !=null){
+            for (int i = 0; i < dataArray.size(); i++) {
+                Code_Name_Credit_table ob = new Code_Name_Credit_table((String)dataArray.get(i), (String)utilities.AllCourseJsonObj.get(dataArray.get(i)+"Name"), (String)utilities.AllCourseJsonObj.get(dataArray.get(i)+"Credit"));
+                Course_table.getItems().add(ob);
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No data For this batch");
+            alert.setContentText("Provide data in Entry page");
+            alert.showAndWait();
+        }
     }
     static  String offeredCourseJsonText;
     static JSONObject CourseOFBatches_JsonObj;

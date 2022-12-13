@@ -131,13 +131,23 @@ public class Student_View_Page_Controller {
         CourseOFBatches_JsonObj = utilities.getJsonObj(offeredCourseJsonText); //all course name of that batch
         JSONArray listOfSubjectJsonArray = (JSONArray)CourseOFBatches_JsonObj.get(Batch_lebel.getText());
 
-        System.out.println(listOfSubjectJsonArray);
-        for (int i = 0; i < listOfSubjectJsonArray.size(); i++) {
 
-            Code_Name_Credit_table ob = new Code_Name_Credit_table((String)listOfSubjectJsonArray.get(i), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Name"), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Credit"));
-            course_view.getItems().add(ob);
+            if(listOfSubjectJsonArray !=null){
+                for (int i = 0; i < listOfSubjectJsonArray.size(); i++) {
+
+                    Code_Name_Credit_table ob = new Code_Name_Credit_table((String)listOfSubjectJsonArray.get(i), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Name"), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Credit"));
+                    course_view.getItems().add(ob);
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("No data For this batch");
+                alert.setContentText("Provide data in Entry page");
+                alert.showAndWait();
+            }
         }
+
 
     }
 
-}
+

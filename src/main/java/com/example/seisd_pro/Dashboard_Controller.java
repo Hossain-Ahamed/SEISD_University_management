@@ -69,12 +69,17 @@ public class Dashboard_Controller {
 
 
 
-        ResultSet r = s.executeQuery("SELECT COUNT(CourseCode) FROM `courseinfo`");
-        while (r.next()) {
+        try {
+            ResultSet r = s.executeQuery("SELECT COUNT(CourseCode) FROM `courseinfo`");
+            while (r.next()) {
 
-            TotalCourse.setText(r.getString("COUNT(CourseCode)"));
+                TotalCourse.setText(r.getString("COUNT(CourseCode)"));
 
+            }
+        }catch (Exception e){
+            System.out.println(e);
         }
+
 
        String runningCourseJsonData = getJsonText("SELECT * FROM `information` WHERE attribute ='runningCourseData'");
         JSONObject assignedBatchOfThatCourse_JsonObj = getJsonObj(runningCourseJsonData);//batch name that are assigned to that course

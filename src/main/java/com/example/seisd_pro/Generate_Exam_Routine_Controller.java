@@ -19,12 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -259,7 +254,11 @@ public class Generate_Exam_Routine_Controller {
                IncrementExamDaysIf_all_batch_exam_taken_Or_Off_day();
 
                 if (totalCourse_FOR_LOOP_TRAVERSAL.size() == 0) {
-                    error.setText("Completed");
+                    Alert alert = new Alert(Alert.AlertType.NONE);
+                    alert.setTitle("Confirmation");
+                    alert.setHeaderText("Routine creation completed");
+                    alert.setContentText("Select from table to edit or Click publish");
+                    alert.showAndWait();
                     create.setDisable(true);
                     gadd.setDisable(true);
                     break;
@@ -267,7 +266,24 @@ public class Generate_Exam_Routine_Controller {
             }
 
         } else{
-            error.setText("Input Format or data is not correctly given.Try Again !!");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            if(examStartDay ==null){
+                alert.setHeaderText("Select Examination start day");
+            } else if (matcher.matches() ==false) {
+                alert.setHeaderText("Provided Room information is not Correct");
+            } else if (utilities.isValidTime(StartTime1.trim()) != true) {
+                alert.setHeaderText("Shift 1 exam starting time is not correct");
+            }else if (utilities.isValidTime(StartTime2.trim()) != true) {
+                alert.setHeaderText("Shift 2 exam starting time is not correct");
+            }else if (utilities.isValidTime(EndTime1.trim()) != true) {
+                alert.setHeaderText("Shift 1 exam ending time is not correct");
+            }else if (utilities.isValidTime(EndTime2.trim()) != true) {
+                alert.setHeaderText("Shift 2 exam ending time is not correct");
+            }
+            alert.setContentText("Try Again !!!");
+
+            alert.showAndWait();
         }
 
     }
