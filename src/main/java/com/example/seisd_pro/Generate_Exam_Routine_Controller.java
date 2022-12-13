@@ -259,8 +259,6 @@ public class Generate_Exam_Routine_Controller {
                     alert.setHeaderText("Routine creation completed");
                     alert.setContentText("Select from table to edit or Click publish");
                     alert.showAndWait();
-//                    create.setDisable(true);
-//                    gadd.setDisable(true);
 
                 }
             }

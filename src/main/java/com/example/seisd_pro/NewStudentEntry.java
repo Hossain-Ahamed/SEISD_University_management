@@ -77,6 +77,7 @@ public class NewStudentEntry {
         && utilities.isNotNull(gendervalue)  &&
                 utilities.isNotNull(Address.getText().trim())  &&
                 utilities.isNotNull(SID.getText().trim()) &&
+                utilities.isInteger(SID.getText())&&
                 utilities.isNotNull(Batch.getText()) &&
                 utilities.isInteger(Batch.getText()) &&
                 utilities.isNotNull(semester.getValue().toString())
