@@ -179,6 +179,7 @@ public class Generate_Exam_Routine_Controller {
     }
     @FXML
     void CreateRoutineButton(ActionEvent event) throws SQLException {
+        ESchedule_table.getItems().clear();
         error.setText("");
 
         gc();
