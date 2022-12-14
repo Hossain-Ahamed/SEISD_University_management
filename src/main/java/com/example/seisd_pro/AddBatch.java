@@ -70,7 +70,7 @@ public class AddBatch {
             //if all course are done by the batch then delete from ------>> courseoffer and completedCoursetable
             if(completedCourseJSONArray.size() ==utilities.AllCourseNameArray.size()){
                 prevCourseOfferJSONObj.remove(batchNo__ForResetCourseOffer.get(i));  // delete batch name from course offer in database
-                completedCourseJSONObj.remove(batchNo__ForResetCourseOffer.get(i));
+                completedCourseJSONObj.remove(batchNo__ForResetCourseOffer.get(i));// delete batch name from completed course in database
             }
         }
 
