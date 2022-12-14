@@ -177,6 +177,7 @@ public class Generate_Exam_Routine_Controller {
         JSONObject jsonObj = (JSONObject) obj;
         return jsonObj;
     }
+    static boolean created = false;
     @FXML
     void CreateRoutineButton(ActionEvent event) throws SQLException {
         ESchedule_table.getItems().clear();
@@ -255,6 +256,7 @@ public class Generate_Exam_Routine_Controller {
                IncrementExamDaysIf_all_batch_exam_taken_Or_Off_day();
 
                 if (totalCourse_FOR_LOOP_TRAVERSAL.size() == 0) {
+                    created = true;
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("Confirmation");
                     alert.setHeaderText("Routine creation completed");
@@ -433,24 +435,33 @@ public class Generate_Exam_Routine_Controller {
 
     @FXML
     void RoutinePublishButton(ActionEvent event) throws SQLException, IOException {
-        publish.setDisable(true);
-        ObservableList<ExamScheduleTableClass> currentTableData = ESchedule_table.getItems();
+        if(created==true){
+            publish.setDisable(true);
+            ObservableList<ExamScheduleTableClass> currentTableData = ESchedule_table.getItems();
 
 
-        String order = "INSERT INTO `Routine` (`Date`, `courseName`, `times`, `room`) VALUES ";
-        for (ExamScheduleTableClass examScheduleTable:  currentTableData) {
+            String order = "INSERT INTO `Routine` (`Date`, `courseName`, `times`, `room`) VALUES ";
+            for (ExamScheduleTableClass examScheduleTable:  currentTableData) {
 
-            order += "('"+examScheduleTable.getExamDate().toString()+"', '"+examScheduleTable.getCourseName().toString()+"', '"+examScheduleTable.getExamTime().toString()+"', '"+examScheduleTable.getExamRoom().toString()+"') ,";
+                order += "('"+examScheduleTable.getExamDate().toString()+"', '"+examScheduleTable.getCourseName().toString()+"', '"+examScheduleTable.getExamTime().toString()+"', '"+examScheduleTable.getExamRoom().toString()+"') ,";
 
 
 
+            }
+            order = removeLastChar(order);
+            s.executeUpdate(order);
+
+            Parent fxml2 = FXMLLoader.load(getClass().getResource("View_Exam_Routine.fxml"));
+            Pane fxml2scene = new Pane(fxml2);
+            borderPane.setCenter(fxml2);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Routine not Created");
+            alert.setContentText("Create routine Before you publish");
+            alert.showAndWait();
         }
-        order = removeLastChar(order);
-        s.executeUpdate(order);
 
-        Parent fxml2 = FXMLLoader.load(getClass().getResource("View_Exam_Routine.fxml"));
-        Pane fxml2scene = new Pane(fxml2);
-        borderPane.setCenter(fxml2);
 
     }
 
