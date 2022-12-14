@@ -29,6 +29,13 @@ public class utilities {
         obj.put(key,value);
         return obj;
     }
+    public static   Object getIntValueObj(String key,int value){
+        JSONObject obj=new JSONObject();
+        obj.put(key,value);
+        return obj;
+    }
+
+
     public static String getJsonText(String order) throws SQLException {
 
         String JsonText = "";
