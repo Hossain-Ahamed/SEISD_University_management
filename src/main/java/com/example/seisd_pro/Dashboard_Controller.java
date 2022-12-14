@@ -88,17 +88,17 @@ public class Dashboard_Controller {
 
             }
 
+            String runningCourseJsonData = getJsonText("SELECT * FROM `information` WHERE attribute ='runningCourseData'");
+            JSONObject assignedBatchOfThatCourse_JsonObj = getJsonObj(runningCourseJsonData);//batch name that are assigned to that course
+
+            ArrayList <String>totalCourse_FOR_LOOP_TRAVERSAL = new ArrayList<String>(assignedBatchOfThatCourse_JsonObj.keySet());
+
+            RunningCourse.setText(String.valueOf(totalCourse_FOR_LOOP_TRAVERSAL.size()));
         }catch(Exception e) {
             System.out.println(e);
         }
 
 
-       String runningCourseJsonData = getJsonText("SELECT * FROM `information` WHERE attribute ='runningCourseData'");
-        JSONObject assignedBatchOfThatCourse_JsonObj = getJsonObj(runningCourseJsonData);//batch name that are assigned to that course
-
-        ArrayList <String>totalCourse_FOR_LOOP_TRAVERSAL = new ArrayList<String>(assignedBatchOfThatCourse_JsonObj.keySet());
-
-        RunningCourse.setText(String.valueOf(totalCourse_FOR_LOOP_TRAVERSAL.size()));
 
         gc();
     }

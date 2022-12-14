@@ -29,19 +29,18 @@ public class START extends Application {
         new jdbc(c1,s);
         utilities.setJDBC(c1,s);
 
-
         // Get info about the semester
-
         String semOrder = "SELECT value FROM `information` WHERE attribute = 'thisSem'";
         String sem ="";
         ResultSet r = s.executeQuery(semOrder);
         while (r.next()) {sem=r.getString("value");}
         utilities.setSemester(sem);
 
+        //set all course name to utilities
         utilities.AllCourseData();
 
-//        System.out.println(utilities.AllCourseJsonObj);
-//        System.out.println(utilities.AllCourseNameArray);
+
+
 
 
 

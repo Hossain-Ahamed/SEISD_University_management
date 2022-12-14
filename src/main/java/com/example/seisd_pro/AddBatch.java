@@ -40,21 +40,58 @@ public class AddBatch {
 
     @FXML
     void Add_Batch(ActionEvent event) throws SQLException {
-        JSONArray jsonArray = new JSONArray();
-        jsonObject.put(max+1,jsonArray);
-        System.out.println(jsonObject);
-        System.out.println(JSONValue.toJSONString(jsonObject));
-
-
-        s.executeUpdate("UPDATE `information` SET `value`='"+JSONValue.toJSONString(jsonObject)+"' WHERE `attribute`='completedCourse'");
-        s.executeUpdate("UPDATE `information` SET `value`='"+Session.getValue().toString()+Year.getValue().toString()+"' WHERE `attribute`='thisSem'");
+        moveDataToCompletedCourse();
         utilities.setSemester(Session.getValue().toString()+Year.getValue().toString());
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText(Session.getValue().toString()+Year.getValue().toString()+" And Batch "+(max+1) +" Added");
         alert.showAndWait();
-
         setlastSem();
+
+    }
+    static  String prevCourseOfferJSONText,completedCourseJSONText;
+    static  JSONObject prevCourseOfferJSONObj,completedCourseJSONObj;
+    static  JSONArray prevCourseOfferJSONArray,completedCourseJSONArray;
+    static  ArrayList<String> batchNo__ForResetCourseOffer;
+    private  void   moveDataToCompletedCourse() throws SQLException {
+        prevCourseOfferJSONText = utilities.getJsonText("SELECT * FROM `information` WHERE attribute ='courseOffer'");
+        prevCourseOfferJSONObj = utilities.getJsonObj(prevCourseOfferJSONText);
+        batchNo__ForResetCourseOffer = new ArrayList<>(prevCourseOfferJSONObj.keySet());
+
+        completedCourseJSONText = utilities.getJsonText("SELECT * FROM `information` WHERE attribute ='completedCourse'");
+        completedCourseJSONObj = utilities.getJsonObj(completedCourseJSONText);
+        for (int i = 0; i < batchNo__ForResetCourseOffer.size(); i++) {
+            prevCourseOfferJSONArray = (JSONArray) prevCourseOfferJSONObj.get(batchNo__ForResetCourseOffer.get(i));
+            completedCourseJSONArray = (JSONArray) completedCourseJSONObj.get(batchNo__ForResetCourseOffer.get(i));
+            for (int j = 0; j < prevCourseOfferJSONArray.size(); j++) {
+                completedCourseJSONArray.add(prevCourseOfferJSONArray.get(j));
+            }
+            prevCourseOfferJSONArray.clear();
+            //if all course are done by the batch then delete from ------>> courseoffer and completedCoursetable
+            if(completedCourseJSONArray.size() ==utilities.AllCourseNameArray.size()){
+                prevCourseOfferJSONObj.remove(batchNo__ForResetCourseOffer.get(i));  // delete batch name from course offer in database
+                completedCourseJSONObj.remove(batchNo__ForResetCourseOffer.get(i));
+            }
+        }
+
+        try {
+          // add new batch to courseOffer and completed course
+            JSONArray jsonArray = new JSONArray();
+            prevCourseOfferJSONObj.put(max+1,jsonArray);
+            completedCourseJSONObj.put(max+1,jsonArray);
+
+            s.executeUpdate("UPDATE `information` set value='"+(Session.getValue().toString()+Year.getValue().toString())+"' WHERE attribute = 'thisSem'");
+            s.executeUpdate("UPDATE `information` set value='"+JSONValue.toJSONString(prevCourseOfferJSONObj)+"' WHERE attribute = 'courseOffer'");
+            s.executeUpdate("UPDATE `information` set value='"+ JSONValue.toJSONString(completedCourseJSONObj)+"' WHERE attribute = 'completedCourse'");
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+
+
+
+
 
     }
     static String Jsontext;
@@ -75,7 +112,6 @@ public class AddBatch {
                 max=Integer.parseInt(batches.get(i));
             }
         }
-        System.out.println(max);
         Current_last_Batch.setText(Integer.toString(max));
         Current_Sem.setText(utilities.thisSemester());
     }
@@ -93,10 +129,6 @@ public class AddBatch {
         for (int i = 1995; i <= 2030; i++) {
             Year.getItems().add(Integer.toString(i));
         }
-
-
-
-
 
     }
 
