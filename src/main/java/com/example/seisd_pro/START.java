@@ -3,9 +3,11 @@ package com.example.seisd_pro;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 
@@ -52,8 +54,6 @@ public class START extends Application {
 
         primaryStage = window;
         primaryStage.setTitle("PC: "+pc_infos[0]+"--IP: "+pc_infos[2]);
-        ;
-        //  primaryStage.getIcons().add(new Image("/Image/iconshare.png"));
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root, 836, 533);

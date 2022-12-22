@@ -44,6 +44,8 @@ public class Student_View_Page_Controller {
     private Label Name_label;
 
 
+    @FXML
+    private Button registerBtn;
 
     @FXML
     private TableColumn<?, ?> col_courseCode;
@@ -70,33 +72,44 @@ public class Student_View_Page_Controller {
         return obj;
     }
     static BorderPane borderPane;
+    static  boolean datNotFound = false;
 
     @FXML
     void save_button(ActionEvent event) throws SQLException, IOException {
+        if(datNotFound==false){
+            if (jsoninfoobj.get(utilities.thisSemester()) == null){
 
-        if (jsoninfoobj.get(utilities.thisSemester()) == null){
+                ObservableList<Code_Name_Credit_table> currentTableData = course_view.getItems();
+                JSONArray jsonArray = new JSONArray();
 
-            ObservableList<Code_Name_Credit_table> currentTableData = course_view.getItems();
-            JSONArray jsonArray = new JSONArray();
+                for (Code_Name_Credit_table code_name_credit_table:  currentTableData) {
+                    jsonArray.add(Student_View_Page_Controller.getDoubleValueObj(code_name_credit_table.getCourseCode(),0.0));
+                }
+                jsoninfoobj.put(utilities.thisSemester(),jsonArray);
+                System.out.println(jsoninfoobj);
+                String orderJsonText = JSONValue.toJSONString(jsoninfoobj);
+                s.executeUpdate("UPDATE `student` SET `info` = '"+orderJsonText+"' WHERE `student`.`id` = '"+id+"'");
 
-            for (Code_Name_Credit_table code_name_credit_table:  currentTableData) {
-                jsonArray.add(Student_View_Page_Controller.getDoubleValueObj(code_name_credit_table.getCourseCode(),0.0));
+                Parent fxml2 = FXMLLoader.load(getClass().getResource("Assigned_Course.fxml"));
+                Pane fxml2scene = new Pane(fxml2);
+                borderPane.setCenter(fxml2);
+
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Warning!!!!!");
+                alert.setHeaderText("Already Registered!!!");
+                alert.showAndWait();
             }
-            jsoninfoobj.put(utilities.thisSemester(),jsonArray);
-            System.out.println(jsoninfoobj);
-            String orderJsonText = JSONValue.toJSONString(jsoninfoobj);
-            s.executeUpdate("UPDATE `student` SET `info` = '"+orderJsonText+"' WHERE `student`.`id` = '"+id+"'");
-
-            Parent fxml2 = FXMLLoader.load(getClass().getResource("Assigned_Course.fxml"));
-            Pane fxml2scene = new Pane(fxml2);
-            borderPane.setCenter(fxml2);
-
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Warning!!!!!");
-            alert.setHeaderText("Already Registered!!!");
+            alert.setHeaderText("No data");
+            alert.setContentText("Provide data in Entry page");
             alert.showAndWait();
+
         }
+
+
 
 
     }
@@ -133,17 +146,26 @@ public class Student_View_Page_Controller {
 
 
             if(listOfSubjectJsonArray !=null){
+                if(listOfSubjectJsonArray.size()==0){
+                    registerBtn.setDisable(false);
+                    datNotFound =true;
+                }else{
+                    registerBtn.setDisable(true);
+                    datNotFound =false;
+                }
                 for (int i = 0; i < listOfSubjectJsonArray.size(); i++) {
-
                     Code_Name_Credit_table ob = new Code_Name_Credit_table((String)listOfSubjectJsonArray.get(i), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Name"), (String)utilities.AllCourseJsonObj.get(listOfSubjectJsonArray.get(i)+"Credit"));
                     course_view.getItems().add(ob);
+                    datNotFound=false;
                 }
             }else{
+
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Warning!!!!!");
                 alert.setHeaderText("No data For this batch");
                 alert.setContentText("Provide data in Entry page");
                 alert.showAndWait();
+
             }
         }
 

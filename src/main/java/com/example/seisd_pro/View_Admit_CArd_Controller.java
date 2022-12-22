@@ -66,7 +66,10 @@ public class View_Admit_CArd_Controller {
     private Label sbatch;
 
     ObservableList<Admit_card_TableModel> listview = FXCollections.observableArrayList();
-
+    static  String x ,y ,jason_Data;
+    static String semister ;
+    static Admit_card_TableModel ob;
+    String A ,B;
 
     public void displayID(String student_id, String semi) throws ClassNotFoundException, SQLException {
         ResultSet r;
@@ -99,7 +102,7 @@ public class View_Admit_CArd_Controller {
 
             String jason_name = (String) jason_Data_JsonObj.get("name");
 
-            JSONArray subject = (JSONArray) jason_Data_JsonObj.get(""+semister);
+            JSONArray subject = (JSONArray) jason_Data_JsonObj.get(semister);
 
             JSONObject obj ;
             System.out.println(subject);

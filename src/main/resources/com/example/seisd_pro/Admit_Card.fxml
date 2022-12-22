@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="533.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Admit_Card_Controller">
+<AnchorPane prefHeight="533.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seisd_pro.Admit_Card_Controller">
     <children>
-        <Button layoutX="42.0" layoutY="228.0" mnemonicParsing="false" onAction="#wee" style="-fx-background-color: GRAY;" text="Show" textFill="#212122">
+        <Button layoutX="42.0" layoutY="316.0" mnemonicParsing="false" onAction="#wee" style="-fx-background-color: GRAY;" text="Show" textFill="#212122">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font></Button>
@@ -24,12 +24,18 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Text>
-        <TextField fx:id="stid" layoutX="132.0" layoutY="153.0" prefHeight="25.0" prefWidth="392.0" promptText="------Enter your ID------" />
-        <Label layoutX="47.0" layoutY="153.0" prefHeight="25.0" prefWidth="59.0" text="ID">
+        <TextField fx:id="stid" layoutX="132.0" layoutY="205.0" prefHeight="25.0" prefWidth="392.0" promptText="------Enter your ID------" />
+        <Label layoutX="42.0" layoutY="205.0" prefHeight="25.0" prefWidth="59.0" text="ID">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
       <ComboBox fx:id="semi" layoutX="132.0" layoutY="99.0" prefHeight="26.0" prefWidth="392.0" promptText="Current Semester" />
+      <ComboBox fx:id="term" layoutX="132.0" layoutY="153.0" prefHeight="26.0" prefWidth="392.0" promptText="Term" />
+      <Label layoutX="42.0" layoutY="158.0" prefHeight="18.0" prefWidth="59.0" text="Term">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
     </children>
 
 </AnchorPane>

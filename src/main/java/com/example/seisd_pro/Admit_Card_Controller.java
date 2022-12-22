@@ -45,6 +45,9 @@ public class Admit_Card_Controller {
     @FXML
     private ComboBox<String> semi;
 
+    @FXML
+    private ComboBox<String> term;
+
     private Parent root;
     private Stage stage;
     private Scene scene;
@@ -55,66 +58,72 @@ public class Admit_Card_Controller {
         int count = 0;
         String sid = stid.getText();
         String Se = semi.getValue();
+        String te = term.getValue();
         if(Se == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Semester is not selected");
             alert.setContentText("SELECT THE CURRENT SEMESTER");
             alert.showAndWait();
-        }else{
-            if(sid.trim().equals("")){
+        }else {
+            if (te == null) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setHeaderText("ID field is blank");
-                alert.setContentText("Insert Student ID");
+                alert.setHeaderText("Term is not selected");
+                alert.setContentText("SELECT THE TERM");
                 alert.showAndWait();
-            }
-            else {
+            } else {
+                if (sid.trim().equals("")) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("ID field is blank");
+                    alert.setContentText("Insert Student ID");
+                    alert.showAndWait();
+                } else {
 
 
-                String id = "SELECT id FROM student where id = "+sid+"" ;
-                try {
-                    rs = s.executeQuery(id);
-                    while(rs.next()){
-                        String x = rs.getString("id");
-                        count++;
-                    }
+                    String id = "SELECT id FROM student where id = " + sid + "";
+                    try {
+                        rs = s.executeQuery(id);
+                        while (rs.next()) {
+                            String x = rs.getString("id");
+                            count++;
+                        }
 
 
-                    if(count == 0){
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error");
-                        alert.setHeaderText(sid.trim()+ " not found");
-                        alert.setContentText("Insert  Correct Student ID");
-                        alert.showAndWait();
-                    }
-                    else if(count > 0){
-                        Stage popupWindow = new Stage();
-                        popupWindow.initStyle(StageStyle.UTILITY);
-                        popupWindow.initModality(Modality.APPLICATION_MODAL);
-                        popupWindow.setTitle(utilities.getTimeDate());
-                        popupWindow.setWidth(670);
-                        popupWindow.setHeight(650);
-                        popupWindow.setX(500);
-                        popupWindow.setY(50);
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("View_Admit_Card.fxml"));
-                        Parent root = loader.load();
-                        View_Admit_CArd_Controller viewAdmitCArdController = loader.getController();
-                        viewAdmitCArdController.displayID(sid,Se);
-                        Scene popupScene = new Scene(root);
-                        popupWindow.setScene(popupScene);
-                        popupWindow.show();
-                        gc();
+                        if (count == 0) {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Error");
+                            alert.setHeaderText(sid.trim() + " not found");
+                            alert.setContentText("Insert  Correct Student ID");
+                            alert.showAndWait();
+                        } else if (count > 0) {
+                            Stage popupWindow = new Stage();
+                            popupWindow.initStyle(StageStyle.UTILITY);
+                            popupWindow.initModality(Modality.APPLICATION_MODAL);
+                            popupWindow.setTitle(utilities.getTimeDate());
+                            popupWindow.setWidth(670);
+                            popupWindow.setHeight(650);
+                            popupWindow.setX(500);
+                            popupWindow.setY(50);
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("View_Admit_Card.fxml"));
+                            Parent root = loader.load();
+                            View_Admit_CArd_Controller viewAdmitCArdController = loader.getController();
+                            viewAdmitCArdController.displayID(sid, Se);
+                            Scene popupScene = new Scene(root);
+                            popupWindow.setScene(popupScene);
+                            popupWindow.show();
+                            gc();
 
+                        }
+
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Admit_Card_Controller.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
                 }
-                catch (SQLException ex){
-                    Logger.getLogger(Admit_Card_Controller.class.getName()).log(Level.SEVERE, null, ex);
-                }
 
             }
-
         }
 
     }
@@ -124,8 +133,8 @@ public class Admit_Card_Controller {
         this.c1 = jdbc.c1;
         this.s = jdbc.s;
         semi.getItems().add(utilities.thisSemester());
-
-
+        term.getItems().add("Mid Term");
+        term.getItems().add("Final");
 
     }
 
