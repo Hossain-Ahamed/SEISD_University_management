@@ -147,10 +147,10 @@ public class Student_View_Page_Controller {
 
             if(listOfSubjectJsonArray !=null){
                 if(listOfSubjectJsonArray.size()==0){
-                    registerBtn.setDisable(false);
+                    registerBtn.setDisable(true);
                     datNotFound =true;
                 }else{
-                    registerBtn.setDisable(true);
+                    registerBtn.setDisable(false);
                     datNotFound =false;
                 }
                 for (int i = 0; i < listOfSubjectJsonArray.size(); i++) {
