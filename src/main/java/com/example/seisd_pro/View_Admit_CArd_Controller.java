@@ -65,13 +65,17 @@ public class View_Admit_CArd_Controller {
     @FXML
     private Label sbatch;
 
+    @FXML
+    private Label det;
+
     ObservableList<Admit_card_TableModel> listview = FXCollections.observableArrayList();
     static  String x ,y ,jason_Data;
     static String semister ;
+    static String term;
     static Admit_card_TableModel ob;
     String A ,B;
 
-    public void displayID(String student_id, String semi) throws ClassNotFoundException, SQLException {
+    public void displayID(String student_id, String semi, String term2) throws ClassNotFoundException, SQLException {
         ResultSet r;
         String x = null;
         String y = null;
@@ -130,7 +134,7 @@ public class View_Admit_CArd_Controller {
             }
             sbatch.setText("Batch : "+x);
             sname.setText("Student Name : "+jason_name);
-
+            det.setText(term2 +" Examination of "+ semister);
 
     }
 

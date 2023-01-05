@@ -109,7 +109,7 @@ public class Admit_Card_Controller {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("View_Admit_Card.fxml"));
                             Parent root = loader.load();
                             View_Admit_CArd_Controller viewAdmitCArdController = loader.getController();
-                            viewAdmitCArdController.displayID(sid, Se);
+                            viewAdmitCArdController.displayID(sid, Se, te);
                             Scene popupScene = new Scene(root);
                             popupWindow.setScene(popupScene);
                             popupWindow.show();

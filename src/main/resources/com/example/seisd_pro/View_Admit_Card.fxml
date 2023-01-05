@@ -68,6 +68,11 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
+      <Label fx:id="det" layoutX="250.0" layoutY="114.0" prefHeight="18.0" prefWidth="254.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
     </children>
 
 </AnchorPane>
