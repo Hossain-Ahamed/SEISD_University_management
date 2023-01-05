@@ -54,6 +54,7 @@ public class START extends Application {
 
         primaryStage = window;
         primaryStage.setTitle("PC: "+pc_infos[0]+"--IP: "+pc_infos[2]);
+        s.executeUpdate("INSERT INTO `login_data` (`pc_name`, `pc_ip`, `time`) VALUES ('"+pc_infos[0]+"', '"+pc_infos[2]+"', '"+utilities.getTimeDate()+"');");
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root, 836, 533);
