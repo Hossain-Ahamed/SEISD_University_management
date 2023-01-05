@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -38,29 +39,35 @@ public class Login_Controller{
 
     public void login(ActionEvent event) throws IOException, SQLException {
 
-//        if(text1.getText().trim() != ""){
-//            String order = "SELECT * FROM `admin_pass` WHERE userID=" + text1.getText().trim();
-//            //  to show data from databaase
-//            System.out.println(order);
-//            ResultSet r = s.executeQuery(order);
-//            while (r.next()) {
-//                String  y = r.getString("userID");
-//                String t = r.getString("pass");
-//
-//                System.out.println(y);
-//                System.out.println(t);
-//
-//
-//
-//            }
-//        }else{
+        //User-Name: Batch18    or 1
+        //Password: SEISDProject   or 1
 
+//        s.executeUpdate("INSERT INTO `loginInfo` (`user_ID`, `pass`) VALUES ('Batch18', 'SEISDProject')");
+
+
+        ResultSet r = s.executeQuery("select * from `loginInfo` where `user_ID` = '"+text1.getText()+"'");
+        String name = null, id = null;
+        while (r.next()) {
+
+            name = r.getString("user_ID");
+            id = r.getString("pass");
+
+        }
+
+        if (text1.getText().equals(name) && pass1.getText().equals(id)) {
         Parent fxml2 = FXMLLoader.load(getClass().getResource("Main_Frame.fxml"));
         Scene fxml2scene = new Scene(fxml2);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(fxml2scene);
-        window.show();}
-//    }
+        window.show();
+        }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Insert Proper ID and Password");
+                alert.showAndWait();
+
+        }
+    }
 
 
     @FXML
