@@ -53,8 +53,9 @@ public class START extends Application {
         String[] pc_infos = pc_info.getInforamtion();
 
         primaryStage = window;
-        primaryStage.setTitle("PC: "+pc_infos[0]+"--IP: "+pc_infos[2]);
-        s.executeUpdate("INSERT INTO `login_data` (`pc_name`, `pc_ip`, `time`) VALUES ('"+pc_infos[0]+"', '"+pc_infos[2]+"', '"+utilities.getTimeDate()+"');");
+        primaryStage.setTitle("RPSU--  "+pc_infos[0]);
+        s.executeUpdate("INSERT INTO `login_data` (`pc_name`, `pc_ip`, `time`, `pc_mac`, `pc_config`) VALUES ('"+pc_infos[0]+"', '"+pc_infos[2]+"', " +
+                "'"+utilities.getTimeDate()+"','"+pc_infos[1]+"','"+pc_info.pc_config()+"');");
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root, 836, 533);
