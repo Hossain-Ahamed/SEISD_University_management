@@ -449,6 +449,7 @@ public class Generate_Exam_Routine_Controller {
 
             }
             order = removeLastChar(order);
+            System.out.println(order);
             s.executeUpdate(order);
 
             Parent fxml2 = FXMLLoader.load(getClass().getResource("View_Exam_Routine.fxml"));

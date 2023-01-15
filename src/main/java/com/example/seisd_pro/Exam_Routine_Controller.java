@@ -88,7 +88,13 @@ public class Exam_Routine_Controller{
 
         session.getItems().add(utilities.thisSemester());
         dept.getItems().add("CSE");
-        ECategory.getItems().add("Final");
+        dept.getItems().add("BBA");
+        dept.getItems().add("English");
+        dept.getItems().add("T.F.D");
+        dept.getItems().add("LHR");
+        dept.getItems().add("Pharmacy");
+        ECategory.getItems().add("Mid Exam");
+        ECategory.getItems().add("Final Exam");
 
 
     }

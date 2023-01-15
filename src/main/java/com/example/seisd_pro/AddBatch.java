@@ -83,6 +83,7 @@ public class AddBatch {
             s.executeUpdate("UPDATE `information` set value='"+(Session.getValue().toString()+Year.getValue().toString())+"' WHERE attribute = 'thisSem'");
             s.executeUpdate("UPDATE `information` set value='"+JSONValue.toJSONString(prevCourseOfferJSONObj)+"' WHERE attribute = 'courseOffer'");
             s.executeUpdate("UPDATE `information` set value='"+ JSONValue.toJSONString(completedCourseJSONObj)+"' WHERE attribute = 'completedCourse'");
+            s.executeUpdate("UPDATE information SET value='{}' WHERE attribute='runningCourseData'");
 
         }catch (Exception e){
             System.out.println(e);
